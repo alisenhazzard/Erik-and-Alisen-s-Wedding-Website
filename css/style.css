@@ -61,7 +61,7 @@ body, html {
     position: relative;
 }
 #header_lights h1 {
-    bottom: 10px;
+    bottom: 40px;
     color: #ffffff;
     font-family:'Lobster', cursive;
     font-size: 7em;
@@ -75,7 +75,7 @@ body, html {
 }
 #header_lights {
     background: transparent url('../images/header_lights.png') repeat-x;
-    height: 157px;
+    height: 177px;
     position: absolute;
     top: 10px;
     width: 100%;
@@ -93,6 +93,16 @@ body, html {
     animation-timing-function: ease-in-out;
     -moz-animation-timing-function: ease-in-out;
     -webkit-animation-timing-function: ease-in-out;
+}
+#wedding_date {
+    bottom: 0;
+    color: #ffffff;
+    font-size: 2em;
+    left: 0;
+    padding: 0 3.5em 0 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
 }
 /* ========================================================================
  * Links
