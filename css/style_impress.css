@@ -155,13 +155,19 @@ a {
  * Content Wrapper
  * ======================================================================== */
 #site_content_wrapper {
-    padding-bottom: 90px;
-    position: relative;
+    bottom:0px;
+    left:1%;
+    position: absolute;
+    right:1%;
+    top:280px;
 }
-#content_wrapper {
-    font-size: 1.2em;
-    position:relative;
-    margin: 0 1%;
+#content {
+    bottom:0;
+    left:0;
+    overflow:hidden;
+    position: absolute;
+    right:0;
+    top:0;
 }
 
 #our_story_portrait {
