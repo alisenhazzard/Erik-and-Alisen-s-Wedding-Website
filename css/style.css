@@ -16,7 +16,12 @@
   font-weight: 700;
   src: local('Quicksand Bold'), local('Quicksand-Bold'), url('http://themes.googleusercontent.com/static/fonts/quicksand/v2/32nyIRHyCu6iqEka_hbKsnhCUOGz7vYGh680lGh-uXM.woff') format('woff');
 }
-
+@font-face {
+    font-family: 'Alegreya';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Alegreya'), local('Alegreya-Regular'), url('http://themes.googleusercontent.com/static/fonts/alegreya/v3/MYFQxfgoxFvFirdbdLj3M_esZW2xOQ-xsNqO47m55DA.woff') format('woff');
+}
 /* ========================================================================
  *
  * Default element overrides`
@@ -25,8 +30,8 @@
 body, html {
     background: transparent url('../images/site_bg4.jpg');
     color: #ffffff;
-    font-family:'Quicksand', Arial, Verdana, sans-serif;
     font-weight: bold;
+    font-family: 'Alegreya', cursive;
     margin:0;
     padding:0;
     height:100%;
@@ -237,7 +242,9 @@ a {
 .cursive {
     font-family:'Lobster', cursive, Arial;
 }
-
+.clear {
+    clear: both;
+}
 
 
 /* ========================================================================
@@ -364,4 +371,5 @@ a {
 .impress-not-supported .fallback-message {
     display: block;
 }
+
 
