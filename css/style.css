@@ -31,7 +31,7 @@ body, html {
     background: transparent url('../images/site_bg4.jpg');
     color: #ffffff;
     font-weight: bold;
-    font-family: 'Alegreya', cursive;
+    font-family: "Alegreya", Arial;
     margin:0;
     padding:0;
     height:100%;
@@ -242,9 +242,7 @@ a {
 .cursive {
     font-family:'Lobster', cursive, Arial;
 }
-.clear {
-    clear: both;
-}
+
 
 
 /* ========================================================================
@@ -371,5 +369,4 @@ a {
 .impress-not-supported .fallback-message {
     display: block;
 }
-
 
