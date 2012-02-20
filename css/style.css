@@ -202,6 +202,9 @@ a {
 .wedding_party_title {
     font-size: 1.8em;
 }
+.our_story_wrapper {
+    clear: both;
+}
 #warners1 img{
     height: 336px;
     width: 525px;
