@@ -4,7 +4,7 @@
         <meta charset='utf-8' />
 
         <title>Erik and Alisen's Wedding</title>
-        <link href="css/style.css" rel="stylesheet"/>
+        <link href="/static/css/style.css" rel="stylesheet"/>
     </head>
     <body>
         <div id='site_wrapper'>
@@ -20,25 +20,42 @@
                 </div>
             </div>
 
-
             <!-- link_wrapper -->
             <div id="link_wrapper">
-                <a href="index.html">
+                <a href="/"
+                    {% if request.path == '/' %}
+                        class='active_link'
+                    {% endif %}>
                     Welcome!
                 </a>
-                <a href="our_story.html">
+                <a href="/our_story"
+                    {% if '/our_story' in request.path %}
+                        class='active_link'
+                    {% endif %}>
                     Our Story
                 </a>
-                <a href="wedding_party.html">
+                <a href="/wedding_party"
+                    {% if '/wedding_party' in request.path %}
+                        class='active_link'
+                    {% endif %}>
                     Wedding Party
                 </a>
-                <a href="guest_info.html">
+                <a href="/guest_info"
+                    {% if '/guest_info' in request.path %}
+                        class='active_link'
+                    {% endif %}>
                     Guest Info
                 </a>
-                <a href="registry.html">
+                <a href="/registry"
+                    {% if '/registry' in request.path %}
+                        class='active_link'
+                    {% endif %}>
                     Registry
                 </a>
-                <a href="guest_book.html">
+                <a href="/guest_book"
+                    {% if '/guest_book' in request.path %}
+                        class='active_link'
+                    {% endif %}>
                     Guest Book
                 </a>
             </div>
@@ -47,16 +64,8 @@
             <div id="site_content_wrapper">
                 <div id="content_wrapper">
                     <div id="content">
-                        <a id="our_story_portrait" class="polaroid_photo" href="#">
-                            <img class="content_image" src="images/photos/66.jpg" /> 
-                            <div id="our_story_caption" class="polaroid_photo_caption">
-                                February 2009
-                            </div>
-                        </a>    
-                        <h2>Welcome!</h2> We can't wait to share our big day with you, and we are just counting the days until September 1st. Hopefully you can find everything you need here about our wedding, including places to stay, ways to get there, and things to do when you arrive. Please check back, because we'll be adding new info every so often. Also while you're here, remember to sign the Guest Book and say hello!
-
-                        <br /> 
-                        <h3>- Erik and Alisen</h3>  
+                        {% block site_content %}
+                        {% endblock %}
                     </div>
                 </div>
             </div>

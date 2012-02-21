@@ -1,81 +1,25 @@
-<!doctype html>
-<html lang='en'>
-    <head>
-        <meta charset='utf-8' />
+{% extends 'website/base.html' %}
 
-        <title>Erik and Alisen's Wedding</title>
-        <link href="css/style.css" rel="stylesheet"/>
-    </head>
-    <body>
-        <div id='site_wrapper'>
-            <!-- header_wrapper -->
-            <div id="header_wrapper"> </div>
-
-            <div id="header_lights"> 
-                <h1 id="header1">
-                    Erik <span id='heart' class="simple_font">♥</span> Alisen
-                </h1>
-                <div id='wedding_date' class='cursive'>
-                    September 1, 2012
-                </div>
-            </div>
-
-
-            <!-- link_wrapper -->
-            <div id="link_wrapper">
-                <a href="index.html">
-                    Welcome!
-                </a>
-                <a href="our_story.html">
-                    Our Story
-                </a>
-                <a href="wedding_party.html">
-                    Wedding Party
-                </a>
-                <a href="guest_info.html">
-                    Guest Info
-                </a>
-                <a href="registry.html">
-                    Registry
-                </a>
-                <a href="guest_book.html">
-                    Guest Book
-                </a>
-            </div>
-           
-            <!-- link_wrapper -->
-            <div id="site_content_wrapper">
-                <div id="content_wrapper">
-                    <div id="content">
-                        <h2>Guest Info</h2> 
-                        <a id="our_story_portrait" class="polaroid_photo" href="#">
-                            <img class="content_image" src="images/photos/66.jpg" /> 
-                            <div id="our_story_caption" class="polaroid_photo_caption">
-                                February 2009
-                            </div>
-                        </a>    
-                        <h3>The Wedding</h3>
-                        We are having the wedding outdoors at the Lakewood Fireman's Lodge. There is an indoor area in case of weather, but we hope that it will be a rustic and informal event. The ceremony will be around dusk, with the reception to follow, so we also suggest a lightweight sweater or jacket. Check back for more details!
-                        <h3>If You're Flying</h3>
-                        The closest airport is in Jamestown, New York, but it is usually cheaper to fly into Buffalo and then drive to Jamestown. If you would like to share a rental car with someone, just leave a note in the guest book and check for others who are looking to share as well.  
-                        <h3>Hotels</h3>
-                        We have a group-rate at the Comfort Inn (2800 North Main St. Jamestown 716-664-5920 and ask for the Warner-Hazzard Wedding Rate). There are also a few other hotels available nearby, including the Hampton Inn (4 West Oak Hill Road) and a Best Western Plus in Downtown Jamestown. If you want a luxureous experience, there is also a B&B called The Oaks (1103 West 3rd Street).  
-                        <h3>Things to do in the Jamestown area:</h3>
-                        - Chautauqua/Lake Erie Wine Trail (http://www.lakeeriewinecountry.org/) This is a great part of the country for wine-lovers, so be sure to check out some of the wineries or take the tour!<br />
-                        - Lucille Ball - Desi Arnaz Center (http://www.lucy-desi.com/) Lucille Ball was originally from Jamestown, and the center is located in Downtown Jamestown. It has the Lucy-Desi Museum and the Desilu Playhouse. It's only $15 for admission to both, and a must-see for Lucy fans.<br />
-                        - Chautauqua Institution (http://www.ciweb.org/) The Institution will be closed for the season, but visitors are still welcome to browse the area and enjoy the walk through the beautiful residences. You can pass by the historic Anatheum Hotel and end up on Chautauqua Lake for a boat ride (http://www.tourchautauqua.com/).<br />
-                        - Ellicotville (x) The Ellicottville Brewery and shops.<br /> 
-                        - Fenton History Center in Jamestown<br />
-                        - Robert H. Jackson Center in Jamestown<br />
-                        - Peek n' Peak Resort and Spa (http://www.pknpk.com) Located only 30 minutes west of Jamestown, the resort features two golf courses, a luxury day spa, and an indoor swimming pool.<br /> 
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- footer_wrapper -->
-            <div id="footer_wrapper" class='cursive'>
-            </div>
+{% block site_content %}
+    <h2>Guest Info</h2> 
+    <a id="our_story_portrait" class="polaroid_photo" href="#">
+        <img class="content_image" src="/static/images/photos/66.jpg" /> 
+        <div id="our_story_caption" class="polaroid_photo_caption">
+            February 2009
         </div>
-    </body>
-</html>
+    </a>    
+    <h3>The Wedding</h3>
+    We are having the wedding outdoors at the Lakewood Fireman's Lodge. There is an indoor area in case of weather, but we hope that it will be a rustic and informal event. The ceremony will be around dusk, with the reception to follow, so we also suggest a lightweight sweater or jacket. Check back for more details!
+    <h3>If You're Flying</h3>
+    The closest airport is in Jamestown, New York, but it is usually cheaper to fly into Buffalo and then drive to Jamestown. If you would like to share a rental car with someone, just leave a note in the guest book and check for others who are looking to share as well.  
+    <h3>Hotels</h3>
+    We have a group-rate at the Comfort Inn (2800 North Main St. Jamestown 716-664-5920 and ask for the Warner-Hazzard Wedding Rate). There are also a few other hotels available nearby, including the Hampton Inn (4 West Oak Hill Road) and a Best Western Plus in Downtown Jamestown. If you want a luxureous experience, there is also a B&B called The Oaks (1103 West 3rd Street).  
+    <h3>Things to do in the Jamestown area:</h3>
+    - Chautauqua/Lake Erie Wine Trail (http://www.lakeeriewinecountry.org/) This is a great part of the country for wine-lovers, so be sure to check out some of the wineries or take the tour!<br />
+    - Lucille Ball - Desi Arnaz Center (http://www.lucy-desi.com/) Lucille Ball was originally from Jamestown, and the center is located in Downtown Jamestown. It has the Lucy-Desi Museum and the Desilu Playhouse. It's only $15 for admission to both, and a must-see for Lucy fans.<br />
+    - Chautauqua Institution (http://www.ciweb.org/) The Institution will be closed for the season, but visitors are still welcome to browse the area and enjoy the walk through the beautiful residences. You can pass by the historic Anatheum Hotel and end up on Chautauqua Lake for a boat ride (http://www.tourchautauqua.com/).<br />
+    - Ellicotville (x) The Ellicottville Brewery and shops.<br /> 
+    - Fenton History Center in Jamestown<br />
+    - Robert H. Jackson Center in Jamestown<br />
+    - Peek n' Peak Resort and Spa (http://www.pknpk.com) Located only 30 minutes west of Jamestown, the resort features two golf courses, a luxury day spa, and an indoor swimming pool.<br /> 
+{% endblock %}

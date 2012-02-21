@@ -1,77 +1,137 @@
-# Django settings for wedding_website project.
+"""=============================================================================
+    Settings.py
+    ------------
+    Handle django settings.  Imports from settings_config.py, which contains 
+    local server specific settings
+============================================================================="""
+import os
+import sys
+import settings_config
 
-DEBUG = True
+"""--------------------------------------------------------------------------
+    Enviornment Specific Settings
+-----------------------------------------------------------------------------"""
+#Debug settings.  Should never be set to True in production or staging
+DEBUG = settings_config.DEBUG
+HIDDEN_SETTINGS = True 
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
-)
+ENVIRONMENT_TYPES = ['dev', 'production']
+SITE_ENVIRONMENT = settings_config.SITE_ENVIRONMENT
+
+#Double check that debug is always false if in production
+#if SITE_ENVIRONMENT == ENVIRONMENT_TYPES[1]:
+#    DEBUG = False
+
+ROOT_PATH = os.path.realpath(os.path.dirname(__file__))
+HOST_NAME = getattr(settings_config, 'HOST_NAME', 'localhost')
+
+#APACHE URL - Used for urls.py prefix.  Usually will be ''
+try:
+    URL_PREFIX = settings_config.URL_PREFIX
+except AttributeError:
+    URL_PREFIX = ''
+
+"""--------------------------------------------------------------------------
+    
+    Django Database Settings
+
+-----------------------------------------------------------------------------"""
+#See if we should force sqlite use
+try:
+    FORCE_SQLITE = settings_config.FORCE_SQLITE
+except AttributeError:
+    FORCE_SQLITE = False
+
+try:
+    FORCE_POSTGRES = settings_config.FORCE_POSTGRES
+except AttributeError:
+    FORCE_POSTGRES = False
+
+#Use local sqlite db if in dev, otherwise use postgres
+if (SITE_ENVIRONMENT == 'dev' or FORCE_SQLITE is True) and (FORCE_POSTGRES is False):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': 'vasirinterface.db',
+            'USER': '',
+            'PASSWORD': '',
+            'HOST': '',
+            'PORT': '',
+        }
+    }
+elif SITE_ENVIRONMENT == 'production' or FORCE_POSTGRES is True:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'vasirinterface',
+            'USER': 'postgres',
+            'PASSWORD': settings_config.PRODUCTION_PASSWORD,
+            'HOST': 'localhost',
+            'PORT': '',
+        }
+    }
+
+"""--------------------------------------------------------------------------
+    Admins
+-----------------------------------------------------------------------------"""
+try:
+    ADMINS =  settings_config.ADMINS
+except AttributeError:
+    ADMINS = ()
 
 MANAGERS = ADMINS
 
-DATABASES = {
+"""--------------------------------------------------------------------------
+    
+    Email Settings
+
+-----------------------------------------------------------------------------"""
+#Email Settings
+EMAIL_HOST = settings_config.EMAIL_HOST
+EMAIL_HOST_USER = settings_config.EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = settings_config.EMAIL_HOST_PASSWORD
+EMAIL_PORT = settings_config.EMAIL_PORT
+EMAIL_USE_TLS = settings_config.EMAIL_USE_TLS
+
+
+"""--------------------------------------------------------------------------
+    
+    Cache Settings
+
+-----------------------------------------------------------------------------"""
+CACHES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        #'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        'LOCATION': '127.0.0.1:11211',
     }
 }
 
-# Local time zone for this installation. Choices can be found here:
-# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# although not all choices may be available on all operating systems.
-# On Unix systems, a value of None will cause Django to use the same
-# timezone as the operating system.
-# If running in a Windows environment this must be set to the same as your
-# system time zone.
-TIME_ZONE = 'America/Chicago'
+"""--------------------------------------------------------------------------
+    
+    Other django settings
 
-# Language code for this installation. All choices can be found here:
-# http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+-----------------------------------------------------------------------------"""
+MEDIA_URL = getattr(settings_config, 'MEDIA_URL', '')
+MEDIA_ROOT = os.path.join(ROOT_PATH, 'data/www')
 
 SITE_ID = 1
 
-# If you set this to False, Django will make some optimizations so as not
-# to load the internationalization machinery.
-USE_I18N = True
+TIME_ZONE = 'America/Chicago'
+LANGUAGE_CODE = 'en-us'
 
-# If you set this to False, Django will not format dates, numbers and
-# calendars according to the current locale
+USE_I18N = True
 USE_L10N = True
 
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
-
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
-
-# Absolute path to the directory static files should be collected to.
-# Don't put anything in this directory yourself; store your static files
-# in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/home/media/media.lawrence.com/static/"
 STATIC_ROOT = ''
-
-# URL prefix for static files.
-# Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 
-# URL prefix for admin static files -- CSS, JavaScript and images.
-# Make sure to use a trailing slash.
-# Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(ROOT_PATH, "data/www"),
 )
 
 # List of finder classes that know how to find static files in
@@ -83,29 +143,53 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'vma^l)^4t467*+bl*6vcs)syklol4v_t31n6l_nl7w(*5z6$y7'
+SECRET_KEY = '$n-3jw&-vfxn)@@-w-xcze1m!@fqsc0zvba-s8p)dc*&2sulz@'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    'django.template.loaders.filesystem.load_template_source',
+    'django.template.loaders.app_directories.load_template_source',
+#     'django.template.loaders.eggs.load_template_source',
 )
 
+#TEMPLATE_CONTEXT_PROCESSORS = (
+#    'dojango.context_processors.config',
+#)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.request",
+)
+
+
 MIDDLEWARE_CLASSES = (
+    #CACHING
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
+
+    #OTHER
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.middleware.csrf.CsrfResponseMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+
+    #CACHING
+    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
-ROOT_URLCONF = 'wedding_website.urls'
+ROOT_URLCONF = 'erikandalisen.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(ROOT_PATH, "data/templates"),
+)
+
+FIXTURE_DIRS = (
+    os.path.join(ROOT_PATH, 'data/fixtures/'),
 )
 
 INSTALLED_APPS = (
@@ -115,10 +199,11 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'erikandalisen.website',
     # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
+    'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admindocs',
 )
 
 # A sample logging configuration. The only tangible logging
