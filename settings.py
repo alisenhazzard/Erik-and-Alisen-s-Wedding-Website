@@ -100,6 +100,7 @@ EMAIL_USE_TLS = settings_config.EMAIL_USE_TLS
     Cache Settings
 
 -----------------------------------------------------------------------------"""
+'''
 CACHES = {
     'default': {
         #'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
@@ -107,6 +108,7 @@ CACHES = {
         'LOCATION': '127.0.0.1:11211',
     }
 }
+'''
 
 """--------------------------------------------------------------------------
     
