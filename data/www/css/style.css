@@ -40,6 +40,15 @@ body, html {
 a {
     text-decoration: none;
 }
+h2 {
+    border-bottom: 1px solid rgba(255, 255, 255, .7);
+}
+h3 {
+    border-bottom: 1px solid rgba(255, 255, 255, .3);
+    font-size: 1.25em;
+    margin: 1.5em 0 .2em 0;
+}
+
 @keyframes pulsating_heart {
     from {
         color: #ffffff;
@@ -83,22 +92,19 @@ a {
  * Top Stuff
  * ======================================================================== */
 #header_wrapper {
+    background: transparent url('../images/site_bg4.jpg');
+    left:0;
+    position: fixed;
+    height: 250px;
+    right:0;
+    top:0;
+    z-index:100; 
+}
+#header_shadow {
     background: transparent url('../images/header_shadow.png') repeat-x;
     height: 190px;
     position: relative;
-}
-#header_lights h1 {
-    bottom: 40px;
-    color: #ffffff;
-    font-family:'Lobster', cursive;
-    font-size: 7em;
-    font-weight: normal;
-    left: 0;
-    margin: 0;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    text-shadow: 0 0 5px #000000, 0 2px 10px #000000;
+    z-index: 101;
 }
 #header_lights {
     background: transparent url('../images/header_lights.png') repeat-x;
@@ -106,7 +112,21 @@ a {
     position: absolute;
     top: 10px;
     width: 100%;
+    z-index:102;
 }
+    #header_lights h1 {
+        bottom: 40px;
+        color: #ffffff;
+        font-family:'Lobster', cursive;
+        font-size: 7em;
+        font-weight: normal;
+        left: 0;
+        margin: 0;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        text-shadow: 0 0 5px #000000, 0 2px 10px #000000;
+    }
 #heart {
     animation: pulsating_heart 2.2s;
     -moz-animation: pulsating_heart 2.2s;
@@ -134,21 +154,11 @@ a {
 /* ========================================================================
  * Links
  * ======================================================================== */
-#link_wrapper a {
-    color: #2c2d32;
-    margin: 0 50px 0 0;
-    text-decoration: none;
-    text-shadow: 0 2px 1px #ffffff;
-}
-#link_wrapper a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 8px #000000, 0 2px 20px #000000;
-}
 #link_wrapper {
     background: #FFEC8B;
     border: 2px solid #000000;
     border-radius: 8px;
-    box-shadow: 0 0 3px #ffffff, 0 0 14px #000000;
+    box-shadow: 0 0 3px #ffffff, 0 10px 38px #000000, 0 -5px 28px #000000;
     color: #2c2d32;
     font-family:'Lobster', cursive;
     font-size: 1.5em;
@@ -156,32 +166,65 @@ a {
     padding: 10px 5px 10px 5px;
     text-align: center;
 }
+    #link_wrapper a {
+        color: #2c2d32;
+        margin: 0 50px 0 0;
+        text-decoration: none;
+        text-shadow: 0 2px 1px #ffffff;
+    }
+    #link_wrapper a:hover {
+        color: #ffffff;
+        text-shadow: 0 0 8px #000000, 0 2px 20px #000000;
+    }
 
-#link_wrapper .active_link {
-    color: #ffffff;
-    text-shadow: 0 0 5px #000000, 0 2px 10px #000000;
-}
+    #link_wrapper .active_link {
+        color: #ffffff;
+        text-shadow: 0 0 5px #000000, 0 2px 10px #000000;
+    }
 /* ========================================================================
  * Content Wrapper
  * ======================================================================== */
 #site_content_wrapper {
-    padding-bottom: 90px;
+    line-height: 1.6em;
+    padding: 280px 0 50px 0;
     position: relative;
+    z-index:1;
 }
+    #site_content_wrapper a {
+        color: #FFEC8B;   
+    }
+    #site_content_wrapper a:hover {
+        color: #ffffff;   
+        text-decoration: underline;
+        text-shadow: 0 0 5px #000000, 0 1px 20px #000000;
+    }
+
 #content_wrapper {
+    background: rgba(170,170,170,.3);
+    border: 1px solid rgba(170,170,170,.5);
+    border-radius: 10px;
     font-size: 1.2em;
     position:relative;
-    margin: 0 19%;
+    margin: 0 5% 0 17%;
 }
-
+.content_item_left{
+    clear: both;
+    min-height: 464px;
+    margin:0 0 1em 0;
+    padding: 0 20px 10px 180px;
+    position: relative;
+}
+.content_item_left_large {
+    padding: 0 20px 10px 420px;
+}
 .polaroid_photo {
     box-shadow: 0 2px 10px #000000, 0 2px 30px #000000;
     background: #e7e7e7 url('../images/paper.png');
     display: block;
-    float: left;
-    margin:10px 15px;
+    left: -150px;
     padding: 10px 10px 50px 10px;
-    position: relative;
+    position: absolute;
+    top: 0;
 }
 .polaroid_photo img {
     border: 1px solid rgba(0,0,0,.2);
@@ -201,15 +244,6 @@ a {
     text-align: center;
     text-shadow: 0 1px 1px #ffffff;
 }
-.wedding_party_member_wrapper {
-    clear: both;
-}
-.wedding_party_title {
-    font-size: 1.8em;
-}
-.our_story_wrapper {
-    clear: both;
-}
 #warners1 img{
     height: 336px;
     width: 525px;
@@ -218,9 +252,29 @@ a {
     height: 336px;
     width: 525px;
 }
-.guest_info_link {
-    color: #ffffff;   
-    text-decoration: underline;
+
+/* ========================================================================
+ * Guest Book
+ * ======================================================================== */
+.guest_book_message {
+    margin: 0 0 2em 0;
+}
+.message_name { 
+    font-size:1.1em;
+    border-bottom:1px solid rgba(255,255,255, .2);
+}
+label {
+    cursor: pointer;
+    display: block;
+}
+.input_wrapper {
+    float: left;
+    margin:0 0 1% 0;
+    width: 32%;
+}
+.input_wrapper .grey {
+    font-size:.9em;
+    padding:0 .5em; 
 }
 /* ========================================================================
  * Footer Wrapper
@@ -253,3 +307,25 @@ a {
 .cursive {
     font-family:'Lobster', cursive, Arial;
 }
+.italicized {
+    font-style: italic;
+    padding:0 1em 0 0;
+}
+.grey {
+    color: rgba(170,170,170,.9);
+}
+.message_success, .message_error {
+    background: rgba(40, 255, 40, .5);
+    padding: .3em;
+    margin: 1em 0;
+    border-radius: 6px;
+    border: 1px solid rgba(40, 255, 40, .2);
+}
+.message_error {
+    background: rgba(255, 40, 40, .5);
+    border: 1px solid rgba(255, 40, 40, .2);
+}
+.left_padding {
+    padding: 0 0 0 30px;
+}
+.clear { clear: both; }

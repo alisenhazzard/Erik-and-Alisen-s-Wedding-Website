@@ -37,40 +37,16 @@ except AttributeError:
     Django Database Settings
 
 -----------------------------------------------------------------------------"""
-#See if we should force sqlite use
-try:
-    FORCE_SQLITE = settings_config.FORCE_SQLITE
-except AttributeError:
-    FORCE_SQLITE = False
-
-try:
-    FORCE_POSTGRES = settings_config.FORCE_POSTGRES
-except AttributeError:
-    FORCE_POSTGRES = False
-
-#Use local sqlite db if in dev, otherwise use postgres
-if (SITE_ENVIRONMENT == 'dev' or FORCE_SQLITE is True) and (FORCE_POSTGRES is False):
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': 'vasirinterface.db',
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',
-            'PORT': '',
-        }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.db',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
-elif SITE_ENVIRONMENT == 'production' or FORCE_POSTGRES is True:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'vasirinterface',
-            'USER': 'postgres',
-            'PASSWORD': settings_config.PRODUCTION_PASSWORD,
-            'HOST': 'localhost',
-            'PORT': '',
-        }
-    }
+}
 
 """--------------------------------------------------------------------------
     Admins
@@ -169,8 +145,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 MIDDLEWARE_CLASSES = (
     #CACHING
-    'django.middleware.cache.UpdateCacheMiddleware',
-    'django.middleware.gzip.GZipMiddleware',
+    #'django.middleware.cache.UpdateCacheMiddleware',
+    #'django.middleware.gzip.GZipMiddleware',
 
     #OTHER
     'django.middleware.common.CommonMiddleware',
@@ -181,7 +157,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 
     #CACHING
-    'django.middleware.cache.FetchFromCacheMiddleware',
+    #'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 ROOT_URLCONF = 'erikandalisen.urls'
