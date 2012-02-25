@@ -81,12 +81,12 @@
             {% for message in messages %}
                 <div class='guest_book_message'>
                     <div class='message_name'>
-                        <span class='italicized'>{{message.name}}</span>
+                        <span class='italicized'>{{message.name|safe}}</span>
                         <span class='grey'>{{message.date}}<span>
                     </div>
 
                     <div class='message_content'>
-                        {{message.message}}
+                        {{message.message|safe}}
                     </div>
                 </div>
             {% endfor %}
