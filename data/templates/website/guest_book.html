@@ -3,60 +3,64 @@
 {% block site_content %}
 <div class="content_item_left">
     <a id="our_story_portrait" class="polaroid_photo" href="#">
-        <img class="content_image" src="/static/images/photos/11.jpg" /> 
+        <img class="content_image" src="https://s3.amazonaws.com/erikandalisen/11.jpg" /> 
         <div id="our_story_caption" class="polaroid_photo_caption">
             January 2011
         </div>
     </a>    
     <h2>Leave Us A Message</h2>                         
-    <form id='guest_book_form'>
+    <form id='guest_book_form' method='POST'>
+        <div id='guestbook_three_input_wrapper'>
+            <!-- Name -->
+            <div id='input_name_answer_wrapper' class='input_wrapper'>
+                <label for='input_name'>Name</label>
+                <input id='input_name' type='text' name='input_name' 
+                placeholder='Your Name'
+                required=true
+                maxlength='255'
+                value="{{input_name}}" />
+                {% if message_error.name %}
+                    <span class='message_error'>
+                        {{message_error.name }}
+                    </span>
+                {% endif %}
+                
+                <!-- Security Question -->
+                <div id='input_answer_wrapper'>
+                    <label for='input_message'>
+                        What is the groom's last name?
+                    </label>
+                    <input id='input_answer' type='text' name='input_answer' 
+                        required=true
+                        placeholder='Answer' />
+                    {% if message_error.answer %}
+                        <span class='message_error'>
+                            {{message_error.answer}}
+                        </span>
+                    {% endif %}
+                </div>
+            </div>
 
-        <!-- Name -->
-        <div class='input_wrapper'>
-            <label for='input_name'>Name</label>
-            <input id='input_name' type='text' name='input_name' 
-            placeholder='Your Name'
-            maxlength='255'
-            value="{{input_name}}" />
-            {% if message_error.name %}
-                <span class='message_error'>
-                    {{message_error.name }}
-                </span>
-            {% endif %}
+            <!-- Message -->
+            <div id='input_message_wrapper' class='input_wrapper'>
+                <label for='input_message'>Message</label>
+                <textarea id='input_message' type='text' name='input_message' 
+                    maxlength='10000'
+                    required=true
+                    placeholder='Your Message'>{% if input_message != '' %}{{input_message}}{% endif %}</textarea>
+                {% if message_error.message %}
+                    <span class='message_error'>
+                        {{message_error.message }}
+                    </span>
+                {% endif %}
+            </div>
+            <div class='clear'></div>
         </div>
-
-        <!-- Message -->
-        <div class='input_wrapper'>
-            <label for='input_message'>Message</label>
-            <textarea id='input_message' type='text' name='input_message' 
-                maxlength='10000'
-                placeholder='Your Message'>{% if input_message != '' %}{{input_message}}{% endif %}</textarea>
-            {% if message_error.message %}
-                <span class='message_error'>
-                    {{message_error.message }}
-                </span>
-            {% endif %}
-        </div>
-
-        <!-- Security Question -->
-        <div class='input_wrapper'>
-            <label for='input_message'>
-                What is the groom's last name?
-                <span class='italicized grey'>Security Question</span>
-            </label>
-            <input id='input_answer' type='text' name='input_answer' 
-                placeholder='Answer' />
-            {% if message_error.answer %}
-                <span class='message_error'>
-                    {{message_error.answer}}
-                </span>
-            {% endif %}
-        </div>
-        <div class='clear'></div>
 
         <!-- Submit -->
-        <div class='input_wrapper'>
-            <input id='input_submit' type='submit' value='Submit' />
+        <div id='submit_input_wrapper'>
+            <input id='input_submit' 
+                class='button_yellow button_big' type='submit' value='Submit' />
         </div>
         <div class='clear'></div>
 
@@ -77,12 +81,12 @@
             {% for message in messages %}
                 <div class='guest_book_message'>
                     <div class='message_name'>
-                        <span class='italicized'>{{message.name}}</span>
+                        <span class='italicized'>{{message.name|safe}}</span>
                         <span class='grey'>{{message.date}}<span>
                     </div>
 
                     <div class='message_content'>
-                        {{message.message}}
+                        {{message.message|safe}}
                     </div>
                 </div>
             {% endfor %}

@@ -40,7 +40,7 @@ except AttributeError:
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.db',
+        'NAME': '/home/erik/Code/erikandalisen/db.db',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
