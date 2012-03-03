@@ -11,6 +11,7 @@
 
     ======================================================================='''
 from views_util import * 
+from subprocess import *
 import models 
 import datetime, cgi
 
@@ -115,6 +116,9 @@ def page_guest_book(request):
     Github Receive Hook
 
     ======================================================================='''
+def system(cmd):
+    print ''.join(Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE, close_fds=True).communicate())
+
 def github_hook(request):
     #Github returns a POST request, so ignore GET requests
     #if request.method == 'GET':
