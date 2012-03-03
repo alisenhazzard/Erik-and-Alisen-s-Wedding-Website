@@ -123,6 +123,7 @@ def github_hook(request):
     #There is a single variable sent over called payload
     #Run git update
     system('cd /home/Code/erikandalisen && git pull')
+    system('/etc/init.d/apache2 restart')
     data = {'success': True}
 
     return HttpResponse(simplejson.dumps(data), mimetype='application/json')
