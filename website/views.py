@@ -109,3 +109,20 @@ def page_guest_book(request):
 
     #Return the response
     return response
+
+'''========================================================================
+
+    Github Receive Hook
+
+    ======================================================================='''
+def github(request):
+    #Github returns a POST request, so ignore GET requests
+    if request.method == 'GET':
+        return HttpRedirect('/')
+
+    #There is a single variable sent over called payload
+    #Run git update
+    system('cd /home/Code/erikandalisen && git pull')
+    data = {'success': True}
+
+    return HttpResponse(simplejson.dumps(data), mimetype='application/json')
