@@ -39,6 +39,12 @@ urlpatterns = patterns('',
     url(r'^guest_book[/]$', 'website.views.page_guest_book', 
         name='guest_book'),
 
+    #-------------------------------------------------------------------------
+    #Github Hook
+    #-------------------------------------------------------------------------
+    url(r'^github[/]$', 'website.views.github_hook', 
+        name='github'),
+
 )
 
 if settings.DEBUG:
