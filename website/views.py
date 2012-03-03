@@ -115,7 +115,7 @@ def page_guest_book(request):
     Github Receive Hook
 
     ======================================================================='''
-def github(request):
+def github_hook(request):
     #Github returns a POST request, so ignore GET requests
     if request.method == 'GET':
         return HttpRedirect('/')
