@@ -445,6 +445,10 @@ label {
  * Reusable classes
  *
  * ======================================================================== */
+.slideshow {
+    overflow: hidden;
+    max-width: 285px;
+}
 .simple_font {
     font-family: "Arial", "Helvetica", serif !important;
 }
