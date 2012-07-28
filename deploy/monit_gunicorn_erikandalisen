@@ -1,0 +1,4 @@
+check process gunicorn-erikandalisen
+    with pidfile /var/run/upstart_erikandalisen.pid
+    start program = "/sbin/start erikandalisen"
+    stop program = "/sbin/stop erikandalisen"

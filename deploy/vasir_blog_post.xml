@@ -1,0 +1,1388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- sqlite-manager XML Dump
+- version 0.7.1
+- http://sqlite-manager.googlecode.com
+-
+- Generation Time: Mon, 23 Jul 2012 01:09:29 GMT
+- SQLite version: 3.7.10
+-->
+
+<!-- Database: vasir.db -->
+  <database name="vasir.db">
+    <table name="vasir_blog_post">
+      <column name="slug" type="3">javascript-browser-based-tower-defense-game</column>
+      <column name="title" type="3">Javascript Browser Based Tower Defense Game: Elemental TD</column>
+      <column name="post_date" type="3">2010-11-06 13:14:09</column>
+      <column name="post_last_edit_date" type="0">null</column>
+      <column name="num_views" type="0">null</column>
+      <column name="related_image" type="3"/>
+      <column name="category_id" type="3">game_development</column>
+      <column name="content" type="3">My latest project is an Browser Based Tower Defense (Elemental TD) game written in Javascript using the &lt;a href='http://motools.net' rel='nofollow' title='MooTools Library'&gt;MooTools framework&lt;/a&gt; on the client end.  The thing that sort of sets it apart from other browser games is that it is a true browser based tower defense: it does not use flash; it's all javascript / css / html (with many calls to the server to validate the game state and ensure cheating does not happen). The server side of things will likely be done in either Node.JS or Python (right now, it's coded in python using Django).  The idea is fairly similar to every other TD game out there, although this one is done completely in the browser - so you can play from anywhere.  The idea behind the game is not too unique - a typical tower d game, using elements that have unique effects.  The difference, however, is that what I'm really trying to do is develop more of a framework for others to use and create tower defense games.
+&lt;br /&gt;
+In theory, 'End of Ages Elemental Tower Defense' will not be a single tower defense game, but more of a community where people can make maps, towers, creeps, gameplay rules, etc. using this browser based framework.  Eventually, the goal is to have it playable on Facebook, so you can create a game using a map that you (or someone else) creates and play tower defense with them.
+
+&lt;br /&gt;&lt;br /&gt;
+&lt;h2&gt;Current State of End of Ages Elemental Tower Defense&lt;/h2&gt;
+So, what exactly am I doing?  Well, I'm trying at the moment to get a basic elemental tower defense game created.  There are the four elements along with light and dark, each element has a unique ability (dark has damage over time on hit, fire has splash damage, wind has stun, etc).  The creeps will function like in any other tower D game, getting increasingly harder as the next waves comes.  The towers can be upgraded, but you have full control over what exactly you upgrade - you can upgrade the base Damage, Delay, Range, and elemental values for each tower.  There is no preset limit of upgrades, so you have a lot more fine grain control of what you upgrade and the different dynamics that towers of different elements create.  
+&lt;br /&gt;
+So far, nothing unique really.  Now, the next step I want to take is to allow multiple people to connect to the game you're in and build towers along with you.  The more people playing, ideally, the harder the creeps get. 
+&lt;br /&gt;  
+The idea though is to build all this up and allow people to create maps and tower types through using this framework.  
+&lt;br /&gt;
+There will also be a gameplay mode where you can have a defending team (tower builders) and an offense team (creep builders).  The creep builders will receive money based on how far their creeps get and they will be able to upgrade creep health / armor / speed / elements / etc. with money.  The goal of the summoners will be to make creeps reach the end point, and the defenders have to stop them.  The alternative mode is just defenders vs. computer creep summoner.  The computer will summon creeps that will be either automatically generated or predefined by the map maker.  
+
+&lt;br /&gt;&lt;br /&gt;
+&lt;h2&gt;State of the game&lt;/h2&gt;
+The fundamentals of the game are, for the most part, completed.  I am at the point in the tower defense game where you can build towers, send individual creeps, and upgrade damage / delay / range / and the fire, light, and wind elementals for each tower.  It's very rough and under heavy development; I wouldn't even consider it in its alpha stage yet.  The interface is ugly and does not function properly, but once I spend some time with it I will posting the URL to the dev version.
+
+&lt;br /&gt;&lt;br /&gt;
+&lt;h2&gt;Roadmap&lt;/h2&gt;
+There is much left to be done.  The game will require constant communication with the server, but the server side of things has yet to be developed.  I am considering a variety of different approached, but will likely end up using Node.js and couchdb for the game itself and django to handle the website.  The other three elements (dark / earth / water) need to be implemented, and then the creep editor needs to be in place.  
+&lt;br /&gt;
+After that, balancing and other gameplay issues will be tackled, and finally the server side code will be developed.  In theory, the server side of the game should not be very difficult to write as it will be similar to the client, but just accept requests from multiple clients and update the game state.  Then, it will be rolled out on facebook and a website to track player stats will be created . In my next post I will go further in depth about the game and provide a link to test it out.</column>
+      <column name="description" type="3">My latest project is an Browser Based Tower Defense (Elemental TD) game written in Javascript using the MooTools framework on the client end. The thing that sort of sets it apart from other browser games is that it is a true browser based tower defense: it does not use flash or other third party plugins; it’s all Javascript.</column>
+    </table>
+    <table name="vasir_blog_post">
+      <column name="slug" type="3">removing-m-characters-on-ubuntu-in-vim</column>
+      <column name="title" type="3">Removing ^M characters on ubuntu in VIM</column>
+      <column name="post_date" type="3">2010-11-06 13:16:14</column>
+      <column name="post_last_edit_date" type="0">null</column>
+      <column name="num_views" type="0">null</column>
+      <column name="related_image" type="3"/>
+      <column name="category_id" type="3">ubuntu</column>
+      <column name="content" type="3">It took me a while to figure out how to get rid of pesky ^M characters in VIM on ubuntu. ^M in VIM can be manipulated as it is an \r character. Often times other developers would edit python files in gedit or notepad and ^M characters would be inserted. I could not simply %s/\^M//g as “^M” was not a recognized character. 
+&lt;br /&gt;&lt;br /&gt;
+The fix is really quite simple and I was frustrated it took me so long to find, but in case it gets to anyone else – the ^M is a line feed character that is inserted by gedit(among other editors) sometimes. In VIM, it shows up as ^M, but it is actually a “\r” character. So, doing a replace for \r characters will remove the ^M
+
+&lt;br /&gt;&lt;br /&gt;
+&lt;pre&gt;
+%s/\r//g
+&lt;/pre&gt;</column>
+      <column name="description" type="3">Remove ^M characters in VIM by replacing \r with nothing. ^M is really \r. Use :%s/\r//g</column>
+    </table>
+    <table name="vasir_blog_post">
+      <column name="slug" type="3">mootools-1-2-beginners-guide-review</column>
+      <column name="title" type="3">MooTools 1.2 Beginner's Guide - Review</column>
+      <column name="post_date" type="3">2010-11-08 13:19:11</column>
+      <column name="post_last_edit_date" type="0">null</column>
+      <column name="num_views" type="0">null</column>
+      <column name="related_image" type="3"/>
+      <column name="category_id" type="3">mootools</column>
+      <column name="content" type="3">&lt;strong&gt;MooTools 1.2 Beginner's Guide&lt;/strong&gt;, authored by &lt;strong&gt;Jacob Gube&lt;/strong&gt; (of Six Revisions) and &lt;strong&gt;Garrick Cheung&lt;/strong&gt; (a MooTools Community team member with an impressive work resume) and published by &lt;strong&gt;Packt Publishing&lt;/strong&gt; on December 2009, is a book aimed at, as the title suggests, new comers to the MooTools library.  The book aims to provide a solid foundation for MooTools new comers, and assumes a limited knowledge of Javascript, HTML, and CSS.  This book aims at not just at providing a laundry list of MooTool function definitions, but at providing a complete coverage of how MooTools geared towards a beginner.
+
+&lt;br /&gt;&lt;br /&gt;
+&lt;h2&gt;Overall Assessment: 5/5&lt;/h2&gt;
+This book rocks.  This is a superb book and excellent resource not just to learn MooTools, but the authors also succeed in installing some pretty important general programming concepts.  The authors far exceeded my expectations for this title, and although I have been using MooTools fairly regularly for almost two years, I too picked up a few things.  This is truly a great foundational type of book, not just for MooTools but for web development in general.  This book, I believe, has done something I feel is very much needed for MooTools to really take off even more than it has - it has made the framework very approachable and attractive to people not just trying to decide what JS framework to use, but also to those people who aren't even sure what a framework is.
+
+&lt;br /&gt;&lt;br /&gt;
+&lt;h4&gt;Writing Style&lt;/h4&gt;
+The overall writing style was fluid and lucid, along with some actual good humor intermixed.  Though geared at beginners, the tone was never condescending; not once did I feel like the author was 'talking down' to the reader.  It truly is an easy to follow book that even a novice in Javascript could follow with ease.  The book is chock full of code samples, all explained line by line, and there are often many screenshots that accompany code to show what exactly the code is doing.  As far as errors go, I came across no writing errors, kudos to the reviewer / editor, and only one minor code error.
+
+&lt;br /&gt;&lt;br /&gt;
+&lt;h4&gt;Required knowledge&lt;/h4&gt;
+The authors state that some basic JS / HTML / CSS knowledge is assumed, but they do an excellent job on not relying on that assumed knowledge; all concepts are thoroughly explained and I feel that anyone who is interested would be able to pick up and follow the book, even with little to nill CSS / HTML experience.
+&lt;br /&gt;
+
+The book advertises an emphasis on 'doing' and less of a focus on theory - something that the authors deliver, providing extensively detailed comments, explanations, and screenshots for pretty much every topic discussed.  I believe the authors successfully walked the line of theory / application, providing just enough theory to explain most topics but not enough to bog a beginner down.  And the code samples / exercises are fantastic.  Early on, the Fx class is introduced and I feel as if it would really hook readers into the book - I certainly appreciated it.
+&lt;br /&gt;
+
+I've had a difficult time finding great books (not just MooTools, but most subjects) aimed at beginners  - too many books assume knowledge that beginners might not have, other books dumb down the content too much that it's hard to pull anything useful from it.   This book is one of those rare cases where everything just fits.  I feel that if I were a beginner to MooTools again, this book would have been perfect and would have saved me months of figuring things out by myself.  With my current knowledge level, it was at the least a very great refresher and I learned quite a few things from it; a great way to fill in any gaps of knowledge I may have had from teaching myself.
+
+&lt;br /&gt;&lt;br /&gt;
+&lt;h4&gt;Coverage of MooTools and Programming Concepts&lt;/h4&gt;
+I'll repeat myself here and say how impressed I was how the authors don't just teach MooTools, they also teach good programming habits.  The easy route to take would have been just to describe how MooTools work, but this book does not stop there.  Early on, the authors focus heavily on Javascript obfuscation; decoupling JavaScript embedded in HTML elements.  Higher level programming concepts are just not explained, but reinforced throughout the book – be it through the clean code examples, mentioning it multiple times, or including it in ‘tip boxes’ (such as why using single quotes instead of double quotes is typically preferred).
+&lt;br /&gt;
+
+Object Oriented Programming is explained very well.   AJAX, while MooTools implements it, is also given thorough coverage.   All these 'extra' concepts that aren't strictly MooTools are handled beautifully; the authors clearly know what they were doing when writing this book.
+&lt;br /&gt;
+
+As mentioned earlier, it's often hard to find a beginner book for a topic that doesn't require tons of knowledge of other topics.  With this book, however, someone who is not just a MooTools novice, but also a novice to web development and has maybe only heard of MooTools could pick this book up and get an excellent overview of the entire Javascript / HTML / CSS / Landscape.
+
+&lt;br /&gt;&lt;br /&gt;
+&lt;h2&gt;Book Structure&lt;/h2&gt;
+The book is divided into chapters which each cover a particular area.  Each chapter is broken down in a general structure similar to
+&lt;ul&gt;
+	&lt;li&gt;Theory&lt;/li&gt;
+	&lt;li&gt;Examples (Time for Action)&lt;/li&gt;
+	&lt;li&gt;Example explanation (What just happened)&lt;/li&gt;
+	&lt;li&gt;Occasionally a self test or pop quiz&lt;/li&gt;
+        &lt;li&gt;Repeat&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br /&gt;
+
+I was very pleased how the authors broke down each chapter.  The theory sections explain what is going on behind the scenes (but not too complex), and then immediately examples are given which can easily be followed along with.
+&lt;br /&gt;
+
+The code examples are thoroughly discussed line by line, I never felt as if anything was ambiguous or unexplained.    After the example code, a section describing what happened (from more of a general point of view often) is given, wrapping up the example and ensuring nothing is left unexplained.
+&lt;br /&gt;
+
+The occasional self test or pop quiz help to reinforce that the reader understood what happened, and the tests and quizzes are very simple – they usually just involve changing a function call or recalling some information discussed previously.
+&lt;br /&gt;
+
+I do have a major gripe here though, and it’s that the pop quizzes provide answers immediately by bolding the correct answer.  By providing the answer within the question, it doesn’t give the reader any time to arrive at the correct answer themselves, as they already know it; even if they try to suppress the fact they know the right answer, the satisfaction of figuring it out is taken away to some extent.  There are not many pop quizzes, and because of the way the rest of the book is written, I can’t justify not giving the overall book a 5 star rating.  This is  a minor issue, albeit fairly important since the book’s audience is beginners, and I think books like this would benefit from having the answers provided after the questions are asked, and not immediately visible when asked.
+&lt;br /&gt;
+Many chapters also have multiple theory / code examples, but the general structure of theory -&amp;gt; code / line by line analysis -&amp;gt; post code breakdown is followed pretty consistently by the authors throughout the book.
+
+&lt;br /&gt;&lt;br /&gt;
+&lt;h3&gt;Content Format&lt;/h3&gt;
+Code is cleared typefaced, and relevant lines of code that are to be discussed are bolded.  I do have a minor gripe that there are a couple of places where the code does not properly line up, but those cases are few and far between.
+&lt;br /&gt;
+
+New terms and important words that appear in non-code text are also bolded.  There are also “Notes” and “Tips / Tricks” boxes which appear as boxes outside of text, used to direct attention to things related to the topics being discussed.
+&lt;br /&gt;&lt;br /&gt;
+
+&lt;h2&gt;Chapter Analysis&lt;/h2&gt;
+&lt;h3&gt;Chapter 1- MooTools and Me&lt;/h3&gt;
+This chapter covered what MooTools is and why it’s such a great framework, setting up MooTools on the reader’s system, and diving into a bit of code.
+&lt;br /&gt;
+
+The introductory paragraph provides a great overview of the current web landscape and JavaScript’s place in it.  MooTools is described convincingly and I like how within the first two pages already code is being provided.
+&lt;br /&gt;
+
+The term ‘AJAX’ is tossed around frequently, but justifiably so.  I appreciate the emphasis on it and the code that samples how MooTools makes creating a request much easier.  The DOM (Document Object Model) is mentioned, but there exists no description for it, which might confuse complete newcomers.
+&lt;br /&gt;
+
+The authors go from providing a step by step guide to settings up MooTools to immediately jumping into some code.  I like this approach.
+&lt;br /&gt;
+
+The descriptions of MooTools Core and MooTools More are handled well and at the perfect time.   Figuring out this distinction took me a while when I first jumped into MooTools.  The authors do a great job of explaining not just why MooTools is modular, but also what the whole concept of modularity implies and why it is important not to just bundle everything in one big honking file - something that is not necessarily common knowledge among beginning coders (at least it wasn't for me).  This is an example of how the authors do a fantastic job at interweaving essential programming habits and concepts into a book whose goal isn’t to teach these concepts, but whose goal is to teach MooTools – and they do a great job at teaching both.
+&lt;br /&gt;
+
+The following description of what an API is impressed me even more.  I love how this book really breaks down all these universal coding concepts and makes them easily approachable to a novice getting into MooTools.
+&lt;br /&gt;&lt;br /&gt;
+
+&lt;h3&gt;Chapter 2 – Writing Javascript with MooTools&lt;/h3&gt;
+Chapter 2 provided a great introduction to some general theory, discussed the concept of unobtrusive javascript, classes / OOP , chainability in MooTools, and the Fx class.
+&lt;br /&gt;
+
+It begins with a great explanation of why MooTools should be used and the problems it addresses - namely, helping you write better JavaScript code.  Then the authors discuss unobtrusive JavaScript (removing JavaScript functionality from your actual content) using an example of calls to a function that then call alert() once clicked, embedded in anchor (a) elements.  I very much like this example and the way it is explained.  The steps taken to show how to add an eventListener are excellent.  Every line of code that changes is described along with an explanation.  The authors hold the reader's hand through the example, but not in a condescending way or a way that dumbs down the text; I think a complete MooTools beginner would have no time at all grasping the concepts and implementation.
+&lt;br /&gt;
+
+The discussion on unobtrusive javascript is excellent, I am very pleased that they introduced the concept so early on.  It not only teaches people how to use MooTools, but good programming habits, which is just equally (if not more) important.  Another concept they discuss is DRY (Don't Repeat Yourself), they do a good job and make it clear what exactly it is and why it's good practice.
+&lt;br /&gt;
+
+A large part of this chapter was dedicated to Object Oriented Programming.  Overall, very great section.  However, the introduction and explanation of what a class is was, I felt, a bit a bit lacking.  Perhaps a brief description of what OOP is and how it differs from functional programming would have been a goot fit here.  I won't complain too much about it though, since a full course on OOP is outside the scope of the book; however, it would have been nice for a bit more thorough definitions.
+&lt;br /&gt;
+
+The authors used an example of a Dog class to walk through the OOP principals. It was handled gracefully and I think it would have communicated to a complete beginner what OOP is.  Defining classes, setting attributes and methods, inheritance, and object instantiation were all covered well and the example code was a great way to demonstrate the concepts - the code worked flawlessly and produced the expected output.
+&lt;br /&gt;
+
+MooTools makes it very easy to do object oriented programming.  While I feel there's room for improvement on how the authors introduced the concepts of OOP, the way they explain OOP in MooTools leaves nothing to be desired.  They thoroughly but concisely explain how to set up classes, methods, what the initialize function is doing, etc, etc.  With the level of MooTools knowledge I have (I'm not a developer of MooTools or anything, so there is definitely a lot I need to learn), I felt like they covered how OOP in MooTools worked in a way that was extremely accessible to a beginner without, leaving anything important out.
+&lt;br /&gt;&lt;br /&gt;
+
+&lt;h3&gt;Chapter 3 - Discussing DOM Elements&lt;/h3&gt;
+This chapter covered the concept of the DOM and focused largely on the $() and $$() selectors.
+&lt;br /&gt;
+
+It began with a introduction to what the DOM is.  The description of the DOM is brief, but thorough.  The authors provided a short refresher on CSS, which was nice.  The CSS code the authors write is very clean and done properly.  The advantage of using MooTool's built in selection method is made very clear and I am pleased with how well it is described - not only can you easily selects elements like you could via CSS, but MooTools also supports already supports CSS3 selectors.  This seems in itself a great reason to use the framework for anyone who makes websites, especially web designers.
+&lt;br /&gt;
+
+Coverage of both $ and $$ are excellent, along with the tip to use $ over $$ for performance.  The authors also discuss why it is a better habit to use single quotes instead of double quotes, as you won't have to worry about escaping quotes as much.
+&lt;br /&gt;
+
+With MooTools, you pass in only the ID of an element to $(), but you pass in a CSS selector to $$().  This distinction can be confusing at first, but the authors makes the difference clear and thoroughly explain it.
+&lt;br /&gt;
+
+Psuedo-selectors are also discussed.  The pseudo-selector ability is very very handy, and I wasn't aware of the full power of it.  It is explained well and the example of Zebra striping a table is clear and easy to follow.  The single to turn all even elements a certain background color is definitely an impressive demo and I think it does a good job at captivating interest (although I was aware of this ability, it is nice to see how eloquent it is, just a single line).
+&lt;br /&gt;&lt;br /&gt;
+
+&lt;h3&gt;Chapter 4 - The Core's Useful Utility Functions&lt;/h3&gt;
+This chapter covered the MooTools Core, first focusing on browser detection, then covering other useful functions such as $time().
+&lt;br /&gt;
+
+There is a heavy emphasis on browser detection early on.  The authors do a fantastic job at explaining how powerful MooTool's built in Browser system is.  The three components, Browser.Feature, Browser.Engine, and Browser.Platform are outlined in the beginning, given a brief description, and then examples are provided showing how to use each component.  They mention xPath, but I would have like more discussion of why it is relevant and what significance it has.
+&lt;br /&gt;
+
+The example for Browser.Engine.name for determining rendering info is great.  The authors also describe Browser.plugin - I was unaware of Browser.plugin to detect for flash presence, very nifty.
+&lt;br /&gt;
+&lt;strong&gt;$time and $clear&lt;/strong&gt;
+&lt;br /&gt;
+
+The example using $time was incredible.  It clearly explained another important feature not just about MooTools, but about development in general - testing how long something takes to run.  The example to introduce it was timing how long between an alert being called and the user closing it.  I think this is one of the best ways to introduce the concept of timing processes, and it gives the user direct control over the start / end time, and lets them play around with it and see how that is an analogy to how long a process would take to do something.
+&lt;br /&gt;
+
+$clear and $periodical were also great sections, and were explained well through another CSS example of moving a box.
+&lt;br /&gt;
+
+The $extend() example is nice and reinforces the OOP concepts in a clear beginner friendly way
+&lt;br /&gt;
+
+$each: The author show why $each is an excellent way to save time instead of writing for loops.  However, it was a bit unclear about the arguments - the action section cleared it up though.  The authors did a good job explaining and show how it could save time through the code example.
+&lt;br /&gt;
+
+The core utility functions are described nicely.  The subtle difference between $chk and $defined are thoroughly explained and clear.  The explanation of how $try worked and how it is used was excellent.  The other utility function explanations were brief, but it was clear how they could be used.
+&lt;br /&gt;
+
+Excellent chapter, overall.  The MooTools core provides functionality that many Javascript developers use on a daily basis, and as the MooTools core is, well, the core of MooTools, a book talking about it needs to be thorough.  I felt that the authors did a superb job here and left nothing out.
+&lt;br /&gt;&lt;br /&gt;
+
+&lt;h3&gt;Chapter 5 - Working With Events&lt;/h3&gt;
+Chapter 5 covered events and how MooTools handles them; specifically - defining events, how to add event listeners, how to create custom events and extent MooTool's event object, how to remove and  fire off events, investigate MooTools events methods and properties
+&lt;br /&gt;
+Events were always a pain for me, MooTools handles them beautifully, so I had high expectations from this chapter from the start, and it lived up to my expectations.
+&lt;br /&gt;&lt;br /&gt;
+&lt;strong&gt;What are events&lt;/strong&gt;
+&lt;br /&gt;
+The authors cover the idea of events.  The introductory section is good, it doesn't bog down the user with details.  In MooTools, when specifying an event (for example, 'click'), the 'on' is removed (the W3C specification is 'onClick').  The authors state you must do this, but I would have liked more of an explanation of why MooTools chose to do this.
+&lt;br /&gt;
+The authors divide events into five groups - window events, form events, keyboard events, mouse events, MooTools custom events.   This is an excellent grouping and makes it easier to grab a hold of the concepts.
+&lt;br /&gt;
+Window events are described as events that occur in background.  There is a GREAT comparison of HTML event attribute / MooTools event names and descriptions that clear any confusion. MooTools custom mouse events are covered; mouseenter is very helpful does not fire for children elements.  mouseleave is also very beneficial.
+&lt;br /&gt;
+Event listeners are briefly described and a great example follows.  The emphasis on code samples is good, and the example of highlighting the current form element is excellent. Attaching CSS classes is a common thing, and another very good example demonstrating its use is provided.
+&lt;br /&gt;&lt;br /&gt;
+&lt;strong&gt;Creating custom events&lt;/strong&gt;
+&lt;br /&gt;
+I was very pleased with this section.  They walk through the process of creating your own events via an example of detecting caps lock.
+&lt;br /&gt;
+My only complaint with this section was that the syntax of condition == 0 ? 1 : 0 could be explained more, as it might confuse beginners.
+&lt;br /&gt;
+This chapter was great, however, it was the only chapter that I found a code error.  On page 137, the authors are describing the stopPropagation() method and say to add a line of code above a previous line, but the line of code to add is never given; the actual use of stopPropgation() is not exemplified.  I don't count this too much against the authors though, because the code example that preceded it was very clear and it would be very easy for a beginner to simply call the function because it is described so well.
+&lt;br /&gt;&lt;br /&gt;
+
+&lt;h3&gt;Chapter 6 - Brining Web Pages to Life with Animation&lt;/h3&gt;
+This chapter covered animation through the Fx class.  It follows the same structure as the previous chapters and all the examples and descriptions were great.  The previous chapters used the Fx class and methods such as tween(), and provided a good introduction, in a sense, to this one.  The function calls should be a bit familiar to the reader already, but a great introduction is provided.
+&lt;br /&gt;
+The chapter provides excellent examples of using tween(), fade(), and morph().  I really have nothing but positive feedback to give for this chapter.
+&lt;br /&gt;&lt;br /&gt;
+
+&lt;h3&gt;Chapter 7 - Going 2.0 with AJAX&lt;/h3&gt;
+Chapter 7 discusses MooTool's Request class, how to create Request objects, how to get and send data to servers, and what HTTP are and how to work with them.  Overall, I really enjoyed this chapter.  The discussion on AJAX could have been a bit more thorough, but was sufficient to get the ideas across.  The coverage of MooTool's Request class was excellent.  I was unaware how easily MooTools allows you to handle HTTP headers; something covered real well.
+&lt;br /&gt;
+
+JSON was introduced and covered as well; not just how to use JSON, but what JSON is.  Again I was impressed how the authors cover topics that would appear at first to be outside the scope of MooTools, but they do a wonderful job making everything accessible to beginners.  One of the examples the authors use is how to load an HTML document into an element; again, well written.  AJAX is a pretty big buzz word, and the authors do a great job at explaining what it is and how MooTools makes it much easier to use.
+&lt;br /&gt;&lt;br /&gt;
+
+&lt;h3&gt;Chapter 8 - Beefing Up MooTools:Using the Mootoools More Plugins&lt;/h3&gt;
+Chapter 8 covers MooTools More, using Fx.Accordian, OverText, and Drag plugins.
+&lt;br /&gt;
+I don't have much to say about this chapter.  It really delivers on covering the plugins it sets out cover.  I think the authors selected the plugins to cover well.  Covering more plugins probably would probably just have watered down the book, or made it unnecessarily longer.  The three plugins were different enough and covered well enough that the reader should have no problem using any of the other plugins.  Using and setting options for the plugins was covered very well.
+&lt;br /&gt;
+The authors mention to use good markup so the page degrades nicely when Javascript is disabled.  They do more than just mention it, as all their code is very nicely marked up and clean. They also include a useful note on accessibility in the Drag / Drop example.  I was very impressed, again, with the Drag / Drop example.  They not only demonstrated how to use it, but how to make a simple web game using it.  Overall, excellent chapter.
+&lt;br /&gt;&lt;br /&gt;
+
+&lt;h3&gt;Chapter 9 - Creating Your Own Plugins&lt;/h3&gt;
+Chapter 9 covered how to make your own plugins, designing a design sheet / document, creating a script and then extending it to a plugin, and writing good documentation for it.
+&lt;br /&gt;
+I was blown away by this chapter.  It was the perfect way to end the book, and provided so much useful information that I would buy the book for this chapter alone.
+&lt;br /&gt;
+The design sheet section was superb.  It described why and how to create a document that provided a general overview of your plugin, including what its purpose is and how it is used.  This is not useful for only plugins, but for anything you develop.  This chapter really reinforced not just how to use MooTools, but how to be a good developer.
+&lt;br /&gt;
+It then discussed how to actually code the plugin.  I loved this part.  To first create the plugin, it broke it down into an actual use case - get something working, then extend it.  In this case, the plugin was designed to add comments to pictures automatically based on alt tags.  First the authors wrote a function to do it, then extended it by considering how it could be used; what options would be necessary to provide for configuration, how to make sure it doesn't interfere with other elements on the page, etc.
+&lt;br /&gt;
+Lastly it talked about documentation, something extremely important that I feel not a lot of beginner books cover well enough.  The authors describe not only how to and why documentation is important, but how to follow documentation standards already in place so others can more easily follow it.  I have nothing but praise here, the authors do a fantastic job and it's a shame other beginner books aren't written this way.
+&lt;br /&gt;&lt;br /&gt;
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+I think this book is excellent.  It is perfect for a beginner not only to MooTools, but a beginner to programming in general.  It goes far beyond it's initial goal of making MooTools accessible to beginners; it also teaches good programming fundamentals and concepts.  Not only is it good for beginning programmers, it's also excellent for skilled programmers new to to MooTools.  While it does provide a good foundation for beginner programmers, it does so in such a way that it doesn't take away from actually teaching MooTools.
+&lt;br /&gt;&lt;br /&gt;
+Even people with a good deal of experience using MooTools will take away a lot from this book.  I picked up more than just a few tricks and it helped solidify my knowledge of MooTools.  The code samples were superb and (apart from one minor error described above) flawless.  I cannot recommend this book enough.  There are few books aimed at beginners I have come across that surpass this one, and it definitely ranks up there as one of my favorite books.
+&lt;br /&gt;&lt;br /&gt;
+My only real complaint is that is did not come out sooner when I was teaching myself MooTools, as it would have saved me a great deal of time and I would have made far less errors. However, it has just been published in December of 2009 so everything discussed is extremely relevant and new.  If you want to use MooTools, if you're just getting into Javascript programming, if you want to solidify your MooTools knowledge, if you are considering any Javascript framework, you need to get this book. I cannot a better MooTools book or a better place to learn it.
+&lt;br /&gt;&lt;br /&gt;
+Excellent work, kudos and thank you to Jacob Gube, Garrick Cheung, and Packt Publishing for delivering such an outstanding book.</column>
+      <column name="description" type="3">MooTools 1.2 Beginner's Guide, authored by Jacob Gube and Garrick Cheung is an outstanding book.  It aims to provide a solid foundation for MooTools new comers, and assumes a limited knowledge of Javascript, HTML, and CSS.  This book aims at not just at providing a laundry list of MooTool function definitions, but at providing a complete coverage of how MooTools geared towards a beginner.  I highly recommend it.</column>
+    </table>
+    <table name="vasir_blog_post">
+      <column name="slug" type="3">openlayers-tutorial-part-3-controls</column>
+      <column name="title" type="3">OpenLayers Tutorial - Part 3 - Controls</column>
+      <column name="post_date" type="3">2010-05-02 14:27:01</column>
+      <column name="post_last_edit_date" type="0">null</column>
+      <column name="num_views" type="0">null</column>
+      <column name="related_image" type="3"/>
+      <column name="category_id" type="3">openlayers</column>
+      <column name="content" type="3">Controls allow interaction with OpenLayer maps.  Panning, zooming, switching layers, etc, are all handled via controls. Some controls, such as dragging the map around to pan it, while others, like the overview map, do have a visual appearance.
+&lt;br /&gt;
+&lt;br /&gt;There are cases where you might not want any controls - these cases are actually fairly common; for instance, if you wanted to show a small section of a map, mimic a static image, allow only logged in users to navigate around the map, etc. then you might want to have no controls on your map.
+&lt;br /&gt;
+&lt;br /&gt;This tutorial is broken down and aims to teach you how to do the following:
+&lt;br /&gt;&lt;div class="post_guide"&gt;
+1. Adding Controls
+&lt;br /&gt;2. Customizing Controls - Passing properties and customizing control appearances
+&lt;br /&gt;3. Adding Controls / Panels Outside of the Map
+&gt;&lt;/div&gt;
+&lt;br /&gt;We'll show how to create a map without controls shortly, but what kind of stuff can we do with controls?  There are many more examples on &lt;a href="http://openlayers.com/dev/examples/" title="OpenLayers Examples" rel="nofollow"&gt;OpenLayer.org's Examples&lt;/a&gt; page, simply search for "control" to get an idea of what various types of controls there are.  There are lots of simple ones, ranging from scale bars to full vector layer manipulations. 
+&lt;br /&gt;
+&lt;br /&gt;While there are too many controls to cover in depth here in this post, I'll be focusing on a few different controls throughout this tutorial to exemplify how flexible OpenLayers is and give you an idea of what can be done.
+&lt;h2&gt;Adding Controls&lt;/h2&gt;
+Most controls that are 'visible' (e.g. the layer switcher control) can be placed either inside or outside of the map.  The 'invisible' controls, such the control that allows you to navigate the map when you drag the map with your mouse, are either there are they aren't - so we can't really 'place' them outside the map.  Placing controls inside the map is the default behavior and is a bit simpler than placing it outside (although both are easy once you know how), so we'll cover that first.
+&lt;br /&gt;
+&lt;br /&gt;Adding controls to a map can be done in &lt;strong&gt;two&lt;/strong&gt; different ways. 
+&lt;br /&gt;&lt;br /&gt;&lt;strong&gt;1.&lt;/strong&gt; When the map is created, it can accept an array of OpenLayers.Control objects to be passed in when creating the map object, and controls can be added to the map after it has been created.  If no array of control objects are passed in, (like we've been doing in prior tutorials) OpenLayers creates the map with various default controls.  The basic format (psuedo code follows) is: 
+&lt;pre&gt;controls: [OpenLayers.Control, OpenLayers.Control, etc...]&lt;/pre&gt;
+&lt;strong&gt;2.&lt;/strong&gt; After the map is created, you can add controls individually by calling &lt;em&gt;map.addControl(new OpenLayers.Control)&lt;/em&gt;.
+&lt;br /&gt;
+&lt;br /&gt;Before we get into that though, let's demonstrate how to add a map with no controls.
+&lt;h3&gt;Map Without Controls&lt;/h3&gt;
+By default, OpenLayers adds a few controls to your map, such as mouse navigation and the pan / zoom bar, unless you tell it not to.  (The full list of default controls added are &lt;a href="http://dev.openlayers.org/releases/OpenLayers-2.8/doc/apidocs/files/OpenLayers/Control/ArgParser-js.html" title="OpenLayers ArgParse Control" rel="nofollow"&gt;ArgParser&lt;/a&gt;, &lt;a href="http://dev.openlayers.org/releases/OpenLayers-2.8/doc/apidocs/files/OpenLayers/Control/Attribution-js.html" title="OpenLayers Attribution Control" rel="nofollow"&gt;Attribution&lt;/a&gt;, &lt;a href="http://dev.openlayers.org/releases/OpenLayers-2.8/doc/apidocs/files/OpenLayers/Control/Navigation-js.html" title="OpenLayers Attribution Control" rel="nofollow"&gt;Navigation&lt;a/&gt;, and &lt;a href="http://dev.openlayers.org/releases/OpenLayers-2.8/doc/apidocs/files/OpenLayers/Control/PanZoom-js.html" title="OpenLayers Attribution Control" rel="nofollow"&gt;PanZoom&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;Let's first create a map with &lt;em&gt;no&lt;/em&gt; controls to demonstrate. The following code will create a map object with no controls.  The following line is the main relevant bit of code.
+&lt;br /&gt; 
+&lt;pre&gt;
+var map = new OpenLayers.Map('map', { controls: [] });
+&lt;/pre&gt;
+&lt;div class="post_foot_note"&gt;To see an implmentation of this code, view &lt;a href="http://vasir.net/~erik/tutorials/openlayers_part3/demo1_no_controls.html" title="OpenLayers Control Example"&gt;OpenLayers Control Part 3 - No controls&lt;/a&gt;.&lt;/div&gt;
+&lt;br /&gt;What we're doing here is creating a new OpenLayers.Map object and passing in the ID of the element (typically a div element) that we want the map to appear in.  The next bit &lt;pre&gt;,{ controls: [] }&lt;/pre&gt; is where we specify additional parameters to pass in to create the map.  Keep in mind these parameters are called in such a way of key: value, with multiple 'keys' separated by commas.  The curly brackets denote that we're passing in key:value pair(s) (in this case, just one key:value pair).  
+&lt;br /&gt;The key is &lt;em&gt;controls&lt;/em&gt;, and the value is [], which is an empty array element in Javascript.  We are passing in no OpenLayers.Controls - basically, we're telling OpenLayers that we want this map object we're creating to have an empty array of controls; i.e. this map will have no controls.
+&lt;h3&gt;Map With Controls&lt;/h3&gt;
+To add controls, we can either 
+&lt;br /&gt;1. pass in an array of controls when we instantiate the map (create the map object from the OpenLayers.Map class, like we did above).  We do this by passing in the controls parameters such as { controls: [control1, control2, etc..] } when creating our map, 
+&lt;br /&gt; or 
+&lt;br /&gt;2. add controls after the map has been created.  We do this by called &lt;em&gt;map.addControl()&lt;/em&gt; and inside the paranthesis we pass in an OpenLayers Control object - e.g. &lt;em&gt;new OpenLayers.Control.LayerSwitcher()&lt;/em&gt;
+&lt;br /&gt;
+&lt;br /&gt;The second method is what I typically do when creating my maps; it comes in handy especially when you want to allow controls to be added or removed dynamically.  Let's cover how to add a control to the map using both methods.  I'll be using the OpenLayers Overview Map control (yes, the overview map is considered a control) to demonstrate. 
+&lt;h4&gt;Method 1 - Passing in controls on map creation&lt;/h4&gt;
+There are really two ways to do this.  Because OpenLayers expects you to pass in an array, you can build the array before you actually pass it in, making the code a bit easier to read.  Trying to keep this as simple as possible to those not much experienced with Javascript, we'll use the above example code to demonstrate.  So, let's take a look:
+&lt;pre&gt;
+var map = new OpenLayers.Map('map', { controls: [] });
+&lt;/pre&gt;
+The line here is &lt;pre&gt;controls: []&lt;/pre&gt; Again, we're passing in an empty array for the controls, so no controls will show up.  We can subsitute a previously created list here instead though, as follows:
+&lt;pre&gt;
+var my_controls = []
+var map = new OpenLayers.Map('map', { controls: my_controls });
+&lt;/pre&gt;
+Here we set my_controls equal to an empty array, and pass in my_controls to controls.  Although we have an extra line, we're doing exactly the same thing we did above, only this time we're passing in a previously created array instead of creating it in the map object call.  It doesn't make a lot of sense to do it this way in &lt;em&gt;this&lt;/em&gt; example, but once you start adding more than one control to the map, you'll find it makes it much easier to read your code.  
+&lt;br /&gt;
+&lt;h5&gt;Example&lt;/h5&gt;
+Alright, let's make an actual control now.  We're going to add it to the map the way we just described, by creating a list of controls first.  This will make it easier demonstrate how we can add controls after the map has been created too.  Now, doing it this method we will only have the controls we add to the map, so panning / zooming will not be enabled by default as we are overriding the default controls passed in.  We'll be using the Overview Map control here to demonstrate.
+&lt;br /&gt;This is the relevant code.
+&lt;pre&gt;
+map_controls = [ new OpenLayers.Control.OverviewMap() ];
+map = new OpenLayers.Map('map', {controls: map_controls});
+&lt;/pre&gt;
+&lt;div class="post_foot_note"&gt;
+The full code can be found at &lt;a href="http://vasir.net/~erik/tutorials/openlayers_part3/demo2_overview.html" title="OpenLayers Control Example"&gt;OpenLayers Overview Map Control&lt;/a&gt;.
+&lt;/div&gt;
+
+&lt;br /&gt;Notice the only control is the Overview Map.  We can add more controls by simply seperating them commas.  
+&lt;pre&gt;
+map_controls = [ new OpenLayers.Control.OverviewMap(), new OpenLayers.Control.LayerSwitcher() ];
+map = new OpenLayers.Map('map', {controls: map_controls});
+&lt;/pre&gt;
+&lt;div class="post_foot_note"&gt;
+A demo with this code can be found at &lt;a href="http://vasir.net/~erik/tutorials/openlayers_part3/demo3_overview.html" title="OpenLayers Control Example"&gt;OpenLayers Overview Map and Layer Switcher Control&lt;/a&gt;.
+&lt;br /&gt;&lt;/div&gt;
+Here we have both the overview map and layer switcher; but nothing else.  Finally, before we move on, let's add those two controls and some of the defaul controls OpenLayers add to have a more functional map.
+&lt;pre&gt;
+    map_controls = [ new OpenLayers.Control.OverviewMap(), 
+                    new OpenLayers.Control.LayerSwitcher(),
+                    new OpenLayers.Control.PanZoomBar(),
+                    new OpenLayers.Control.MouseToolbar(), 
+                    new OpenLayers.Control.KeyboardDefaults()];
+    
+    map = new OpenLayers.Map('map', {controls: map_controls});
+&lt;/pre&gt;
+&lt;div class="post_foot_note"&gt;Notice that the controls are seperated by commas, but I have also added new lines for readability.  The code will work the same if there are no line breaks, but it won't be as readable.  Again, you can see the demo at at &lt;a href="http://vasir.net/~erik/tutorials/openlayers_part3/demo4_somedefaults.html" title="OpenLayers Control Example"&gt;OpenLayers Adding Base Controls&lt;/a&gt;.
+&lt;/div&gt;
+&lt;br /&gt;Now that we know how this works though, let's move on to something a bit more common.
+
+&lt;h4&gt;Method 2 - Adding controls after map has been created&lt;/h4&gt;
+We're going to let OpenLayers add some of the basic controls for us.  You may not want to do this, depending on your own needs for the map - if you dont want to allow users to navigate around the map, for instance, then you should probably add controls manually like the method detailed above. 
+&lt;br /&gt;Let's set up a map using the default OpenLayers controls and we'll add the Overview and Layer Switcher control to it.
+&lt;pre&gt;
+    map = new OpenLayers.Map('map');
+    map.addControl(new OpenLayers.Control.OverviewMap());
+&lt;/pre&gt;
+&lt;div class="post_foot_note"&gt;
+You can view the demo at &lt;a href="http://vasir.net/~erik/tutorials/openlayers_part3/demo5_addcontrols.html" title="OpenLayers Adding Controls Example"&gt;OpenLayers Adding Controls&lt;/a&gt;.&lt;/div&gt;
+&lt;br /&gt;Since we didn't pass in controls to the map object, the default controls are added automatically.  The next line is where we actually add the control to the map.  
+&lt;pre&gt;map.addControl(new OpenLayers.Control.OverviewMap()); &lt;/pre&gt;
+&lt;em&gt;map&lt;/em&gt; is our map object we just created, and &lt;em&gt;addControl&lt;/em&gt; is a function call we make that -takes in- an OpenLayers Control object and adds it to the map.  In this case, we are passing in &lt;em&gt;new OpenLayers.Control.OverviewMap()&lt;/em&gt;.  OverviewMap is the class, and we are creating an object from the class by typing &lt;em&gt;new&lt;/em&gt; before it.  
+&lt;div class="post_side_note"&gt;
+If this doesn't make too much sense, don't worry much about it for now - this concept is called Object Orientented Programming, and it is outside the scope of this tutorial.  Without trying to further confuse things, think of a class as a blueprint for a house, and an object as a house created by the blueprint.  This idea applies here; OpenLayers.Control.OverviewMap is a class, which is sort of like the blueprint for an overview map control.  We can't actually do anything with the blueprint though, to manipulate it we need to create an object by called new OpenLayers.Control.OverviewMap(), which basically takes the blueprint and generates an object from it - this object is what we pass into the map.addControl( ) function call, as passing in just the blueprint won't do much good (it'd be similar to opening a door of a house - you can't open a door on the blueprint (the class), but you can open a door on the house (the object)).
+&lt;/div&gt;
+We can also make as many calls to &lt;em&gt;addControl&lt;/em&gt; as we like, and we can use it in conjunction with any controls we pass in when we create the map...OpenLayers is pretty flexible like that.
+&lt;h4&gt;Recap&lt;/h4&gt;To recap, we can add controls by
+&lt;div class="post_guide"&gt;
+1. Passing in an array of controls creating the map
+&lt;br /&gt;2. Calling the function &lt;em&gt;addControl(Control)&lt;/em&gt; and passing in a single OpenLayer control object
+&lt;/div&gt;
+&lt;h5&gt;Example&lt;/h5&gt;
+&lt;strong&gt;Adding controls when map is created&lt;/strong&gt;
+&lt;pre&gt;map = new OpenLayers.Map('map', {controls: [new OpenLayers.Control.OverviewMap()] });&lt;/pre&gt;
+&lt;strong&gt;Adding controls to an already created map&lt;/strong&gt;
+&lt;br /&gt;&lt;pre&gt;map.addControl(new OpenLayers.Control.OverviewMap());&lt;/pre&gt;
+There are a plethora of controls we can add to the map, and I won't cover them all, but you can see a list of them at &lt;a href="http://dev.openlayers.org/releases/OpenLayers-2.8/doc/apidocs/files/OpenLayers/Control/ArgParser-js.html" title="OpenLayers Docs" rel="nofollow"&gt;OpenLayer's Doc Site&lt;/a&gt;.
+&lt;h2&gt;Customizing Controls&lt;/h2&gt;
+So, adding controls is pretty easy, but often we want to customize them a bit.  This part can be a little tricky, as each control has its own set of configuration options - for instance, a permalink control and overview map control do not share the same configuration options.  Some controls can also be placed in an HTML element outside of the map, such as the layer switcher or vector editing toolbar.  We'll first cover configuration basics, and then discuss how to add a control outside a map.
+&lt;br /&gt;
+&lt;br /&gt;Let's walk through how to customize an overview map control, and by doing so you'll have the necessary knowledge to customize any other control (hopefully).  I'm going to break down control customization into two parts:
+&lt;br /&gt;
+&lt;div class="post_guide"&gt;
+1. Instantiation (creation) parameters - handles the actual control options
+&lt;br /&gt;2. Style (CSS) customization - handles the look / feel / position / style of the control
+&lt;/div&gt;
+For this section, I'll use the Overview Map control as an example.  The overview map control does not have the same properties of other controls, so be cognizant of this when adding your own controls.  The best place to find out what we can do when calling an OpenLayer control is at the OpenLayer documentation site, and for this we'll be using &lt;a href="http://dev.openlayers.org/releases/OpenLayers-2.8/doc/apidocs/files/OpenLayers/Control/OverviewMap-js.html" title="OpenLayers Overview Map Control" rel="nofollow"&gt;OpenLayers Overview Map Control Doc&lt;/a&gt;.
+&lt;h3&gt;1. Customization on Instantiation (creation)&lt;/h3&gt;
+When we create a control, we define what options we want it to be created with.  We can, however, manipulate the control after it is created, but for now let's just stick to defining everything when we create the control.
+&lt;br /&gt;Here's some code to create an overview map control with a couple properties defined:
+&lt;pre&gt;
+    map.addControl(new OpenLayers.Control.OverviewMap(
+                {autoPan:true,
+                layers: [new OpenLayers.Layer.WMS("OverviewMap",
+                    "http://labs.metacarta.com/wms/vmap0", 
+                    {layers: 'country_01'})]
+                }
+                ));
+&lt;/pre&gt;
+&lt;div class="post_foot_note"&gt;
+These are the most relevant lines, but you can take a look at the &lt;a href="http://vasir.net/~erik/tutorials/openlayers_part3/demo6_customize_overview.html" title="OpenLayers Adding Controls Example"&gt;customizing overview map control demo&lt;/a&gt; to see it in action.
+&lt;/div&gt;
+
+&lt;br /&gt;This may look intimidating, but let's break it down.  
+&lt;br /&gt;We already know &lt;em&gt;map.addControl(new OpenLayers.Control.OverviewMap(&lt;/em&gt; this line.  &lt;em&gt;map&lt;/em&gt; is our map object, and addControl is the same function we've been using.  Notice that we are calling the function add just one control, so we only pass one control into the function.  We're creating a new OverviewMap control object and passing it in - still, nothing new here.  The next line is new though.
+&lt;pre&gt;{autoPan:true,&lt;/pre&gt;
+Notice the curly brackets - this denotes that we're going to start passing in key:value pairs, which are the options we want to set for this control.  &lt;em&gt;autoPan&lt;/em&gt; is the key, and &lt;em&gt;true&lt;/em&gt; is the value.  Notice the comma afterwards, which means we're going to pass in another key:value pair next.  Before we go to the next line, let's briefly discuss what autoPan:true means.
+&lt;br /&gt;
+&lt;br /&gt;I'm going to quote the &lt;a href="http://dev.openlayers.org/releases/OpenLayers-2.8/doc/apidocs/files/OpenLayers/Control/OverviewMap-js.html#OpenLayers.Control.OverviewMap.autoPan" title="OpenLayers Overview Map Doc" rel="nofollow"&gt;OpenLayer Overview Control Documentation page&lt;/a&gt; directly so you get an idea how to use it.
+&lt;br /&gt;autoPan - "{Boolean} Always pan the overview map, so the extent marker remains in the center.  Default is false.  If true, when you drag the extent marker, the overview map will update itself so the marker returns to the center."
+&lt;br /&gt;
+What this means is that {Boolean} is the -type- of value that is expected in the key:value pair.  Thus, this means that autoPan expects to receive either &lt;em&gt;true&lt;/em&gt; or &lt;em&gt;false&lt;/em&gt; for its value.  If we don't pass in autoPan:true when we create our overview control, OpenLayers assumes autoPan is set as false.  We could also explicitly say autoPan:false but this is not necessary, as we know from looking at the docs that OpenLayers assumes the value is false unless otherwise specified.
+&lt;br /&gt;
+Ok - so moving along.  The next line looks a bit hairy
+&lt;pre&gt;
+layers: [new OpenLayers.Layer.WMS("OverviewMap",
+                    "http://labs.metacarta.com/wms/vmap0", 
+                    {layers: 'country_01'}) ]
+&lt;/pre&gt;
+But let's take a look.  All that's going on here is that &lt;em&gt;layers&lt;/em&gt; is the key and an array containing a single layer object is the value.  From the &lt;a href="http://dev.openlayers.org/releases/OpenLayers-2.8/doc/apidocs/files/OpenLayers/Control/OverviewMap-js.html#OpenLayers.Control.OverviewMap.layers" title="OpenLayers Overview Map Doc" rel="nofollow"&gt;OpenLayer docs&lt;/a&gt;, layers expects an &lt;strong&gt;{Array(OpenLayers.Layer)}&lt;/strong&gt;. 
+&lt;br /&gt;
+&lt;br /&gt;What's this mean?  Well, the overview map expects an array of OpenLayers Layer objects to be passed in.  Layers are discussed in detail in the &lt;a href="http://vasir.net/blog/openlayers/openlayers-tutorial-part2-layers/" rel="nofollow" title="OpenLayers Layer Tutorial"&gt;previous tutorial, part 2 - layers&lt;/a&gt;. So without getting too detailed here, we're basically passing in a single OpenLayers WMS Layer.  This layer is the only layer in our array, but if we wanted another we could just add a comma and specify as many more layers as we want.  We are also passing in parameters to this new OpenLayers Layer object so we get a different layer for the overview map.  By default, the overview map uses the maps' base layer.
+&lt;br /&gt;&lt;br /&gt;
+So, my lengthy explanations aside, we see that it isn't too tricky to pass in construction parameters.  We do it when we create our layers, so it's not new - but there are quite a lot of options, and the official OpenLayers docs describe all the options.  All other controls are called and defined the way we just did above, so it's only a matter of figuring out what control and what options you want to specify.  But after we do this, we might want to give it a custom style.  OpenLayers is generally pretty good with allowing customizable controls with CSS style sheets.  
+&lt;h3&gt;2.Customizing OpenLayers Controls with CSS&lt;/h3&gt;
+&lt;strong&gt;Cascading Style Sheets&lt;/strong&gt; (CSS) allow us to specify how HTML elements look and feel, their size, position, font size, etc. etc.  Anything related to the way the page looks can pretty much be handled via CSS; CSS is a way to customize appearance.  OpenLayers allows us to style our controls with CSS, which makes creating a slick looking map much, much easier.  
+&lt;br /&gt;
+&lt;br /&gt;All OpenLayers controls have an associated CSS class where we can specify a style we want to apply to it. 
+&lt;br /&gt;&lt;div class="post_side_note"&gt;
+I won't cover much CSS in this post, but CSS basically expects an element with property : value pairs, which can be views as key:value pairs, separated by a semi-colon ( ;  ). Here's the basic structure:
+&lt;pre&gt;element { key: value; }&lt;/pre&gt;
+Where &lt;em&gt;element&lt;/em&gt; is an HTML element (can be an element like div (would apply to all div elements) or an ID (single element) or class (multiple elements) ), &lt;em&gt;key&lt;/em&gt; is an attribute of the element (such as width or height) and &lt;em&gt;value&lt;/em&gt; is, surprise, the value.  For things like width or height, the value is either a pixel value (like 500px) or a percentage (like 50%).
+&lt;/div&gt;
+&lt;br /&gt;To define a style for an OpenLayers element, we must access it by class name.  The class names are set up in form of &lt;em&gt;.olControlControlName&lt;/em&gt;.  
+&lt;br /&gt;.olControl is always at the beginning of the classname, and the control name follows.  So, for our overview map, the classname we would need to override the default CSS style is 
+&lt;br /&gt;&lt;pre&gt;.olControlOverviewMap&lt;/pre&gt;
+&lt;br /&gt;Notice the period at the beginning, to those unfamiliar with CSS that denotes that what follows the period is a class name.
+&lt;br /&gt;Now we can override the default styles and make it look like however we want.  Here's an example CSS declaration you can add that will style the overview map on the page; feel free to mess around with the declaration and style it however you would like.
+&lt;pre&gt;
+&amp;lt;style&amp;gt;
+    .olControlOverviewMap {
+        background:#ff0000;
+        width:200px;
+    }
+    .olControlOverviewMapElement {
+        background:#00ff00 !important;
+    }
+&amp;lt;/style&amp;gt;
+&lt;/pre&gt;
+&lt;div class="post_foot_note"&gt;
+View the &lt;a href="http://vasir.net/~erik/tutorials/openlayers_part3/demo7_customize_css.html" title="OpenLayers Adding Controls CSS Example"&gt;overview map css control demo&lt;/a&gt;.
+&lt;/div&gt;
+Now, this is a good example although it is a little tricky, because styling the overview map is a little tricky.
+&lt;br /&gt;You'll notice we have the olControlOverviewMap element's background set as red (#ff0000) but the olControlOverviewMapElement element's background as green (#00ff00) and has !important after it.  This is to ensure that the overview map element's background is not overwritten - if we don't include any background, it is blue by default.  This is because OpenLayer's Overview Map control contains another CSS element, namely the OverviewMapElement, and we need to define it also.  Most controls are not set up this way, but the overview map is fairly common and does not exactly follow the same style guidelines as other controls.  
+&lt;h2&gt;Adding Controls Outside of Map&lt;/h2&gt;
+The last topic we'll cover is how to add a control outside the map.  With the previously discussed code, this should be quite an easy feat to accomplish.  
+&lt;br /&gt;There are many cases where you might want a control outside the map - a toolbar of buttons in a div that sits on top the map, for instance.  You can also create custom buttons, which will be discussed in depth in a future tutorial.  
+&lt;br /&gt;There are two main ways to place controls outside the map
+&lt;br /&gt;&lt;div class="post_guide"&gt;1. Place the control itself outside the map
+&lt;br /&gt;2. Place the control in a "panel" outside the map.  The panel contains a group of controls. 
+&lt;/div&gt;
+&lt;h4&gt;Placing a control outside the map&lt;/h4&gt;
+To place a control outside the map, we need an element to place it in (we'll use a div with an id of "external_control") and we specify a div parameter when calling the control.  To demonstrate:
+&lt;br /&gt;&lt;strong&gt;HTML Code&lt;/strong&gt;
+&lt;pre&gt;
+&amp;lt;div id="external_control"&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/pre&gt;
+&lt;br /&gt;&lt;strong&gt;Javascript Code&lt;/strong&gt;
+&lt;br /&gt;&lt;pre&gt;
+var external_control = new OpenLayers.Control.MousePosition({
+        div: document.getElementById('external_control') });
+
+map.addControl(external_control);
+&lt;/pre&gt;
+You can &lt;a href="http://vasir.net/~erik/tutorials/openlayers_part3/demo8_external_control.html" title="External Controls" rel="nofollow"&gt;view the external control demo here&lt;/a&gt;.
+&lt;br /&gt;
+&lt;br /&gt;We're basically creating a MousePosition control and setting the value of &lt;em&gt;div&lt;/em&gt; to equal an HTML element with the element ID of 'external_control'.  The mouse position control is outside the div, in it's own div.  We could apply whatever style we want, either by styling the div itself (without using OpenLayers style classes) or style the control itself (using the .olControlMousePosition class), or both.
+&lt;br /&gt;
+&lt;h4&gt;Placing a control outside the map in a panel&lt;/h4&gt;
+Panels are basically a collection of controls which can be placed inside or outside of the map.  These are useful for grouping related buttons together, such as pan buttons, zoom buttons, etc.  To demonstrate, we'll build a panel from scratch and add some controls as buttons to it.  We need an HTML element to hold our panel, so we'll do what we did above, but we'll get it an ID of 'panel'
+&lt;pre&gt;
+&amp;lt;div id="panel"&amp;gt;&amp;lt;/div&amp;gt;
+&lt;/pre&gt;
+&lt;br /&gt;Now we just need to create the Panel control itself
+&lt;pre&gt;
+    var external_panel = new OpenLayers.Control.Panel({
+                    div: document.getElementById('panel') });
+    map.addControl(external_panel);
+&lt;/pre&gt;
+&lt;br /&gt;The demo code will come shortly.  Right now, this does nothing but create an empty Panel control attached to our 'panel' div element.  We need to now add controls to it.
+&lt;br /&gt;
+&lt;br /&gt;&lt;h5&gt;Control Types&lt;/h5&gt;
+There are three 'types' of controls OpenLayers provides for use in a panel.
+&lt;br /&gt;1. TYPE_BUTTON
+&lt;br /&gt;2. TYPE_TOOL
+&lt;br /&gt;3. TYPE_TOGGLE
+&lt;br /&gt;
+&lt;br /&gt;&lt;h6&gt;TYPE_BUTTON&lt;/h6&gt;
+These controls call an event / trigger an action when clicked.  An example would be a zoom in / out button; once clicked, an event is triggered to zoom the map in
+&lt;br /&gt;
+&lt;br /&gt;&lt;h6&gt;TYPE_TOOL&lt;/h6&gt;
+These controls 'turn on' when clicked and 'turn off' when clicked again.  An example would be the editing buttons on &lt;a href="http://dev.openlayers.org/releases/OpenLayers-2.8/examples/editingtoolbar.html" title="OpenLayers Vector Layer Editing Example"&gt;OpenLayer's Editing Toolbar Example&lt;/a&gt;.  Once the control is activated (e.g. the pan button - the button with the hand icon), it stays activated until it is either clicked off or another control is activaed.
+&lt;br /&gt;
+&lt;br /&gt;&lt;h6&gt;TYPE_TOGGLE&lt;/h6&gt;
+These controls are similiar to the TYPE_TOOL, as they are activated and deactived on mouse click; however, they do not affect the state of other controls - meaning, that if a TYPE_TOGGLE button is activated, it will not deactivate other controls.  Only one TYPE_TOOL button can be active at a type, but TYPE_TOGGLE buttons do not carry this restriction.
+&lt;br /&gt;
+&lt;h3&gt;Adding controls to panels&lt;/h3&gt;
+Alright, so let's get to it.  We're going to put together what we've learned so far to add zoom in and out buttons to the panel outside the map and edit their class to make them look something like a button.  The first step, creating the panel, was done above.  The next step is to simply add two more controls now - one will be a zoom in control, the other a zoom out control.  By default, there is no style associated with these controls when we place them outside the map, as they are called normally by methods such as scrolling in or out.  
+&lt;br /&gt;Before we describe exactly what we need to do, let's take a look at the docs for the zoom in and out controls - &lt;a href="http://dev.openlayers.org/releases/OpenLayers-2.8/doc/apidocs/files/OpenLayers/Control/ZoomIn-js.html" title="ZoomIn"&gt;Zoom In control&lt;/a&gt;.  You'll notice there's not much there.  It doesn't have any special properties, although it does inherit everything from the base OpenLayers.Control class, so anything we can do to that class we can do to the ZoomIn class.  The ZoomOut class is the same way.  So, we don't need to worry about passing in anything extra really, we'll just create the two controls without passing anything in; here's how we do it.
+&lt;div class="post_foot_note"&gt;
+1. Create and add a panel to the map
+&lt;br /&gt;2. Create and add a zoom in and a zoom out control to the map
+&lt;br /&gt;3. Add the zoom in and zoom out controls to the panel
+&lt;br /&gt;4. Add a style to the two controls
+&lt;/div&gt;
+&lt;h5&gt;1. Create and add a panel&lt;/h5&gt;
+We've done this above.  We need to create a div with an ID of "panel" and add the corresponding Javascript code.
+&lt;pre&gt;
+    var external_panel = new OpenLayers.Control.Panel({
+                    div: document.getElementById('panel') });
+    map.addControl(external_panel);
+&lt;/pre&gt;
+&lt;br /&gt;
+&lt;h5&gt;2. Create and add a zoom in and a zoom out control to the map&lt;/h5&gt;
+&lt;br /&gt;All we have to do is create the controls
+&lt;pre&gt;
+    var control_zoom_in = new OpenLayers.Control.ZoomIn();
+    var control_zoom_out = new OpenLayers.Control.ZoomOut();
+&lt;/pre&gt;
+and then add them to the map
+&lt;pre&gt;
+    map.addControl(control_zoom_in);
+    map.addControl(control_zoom_out);
+&lt;/pre&gt;
+&lt;br /&gt;&lt;h5&gt;3. Add the zoom in and zoom out controls to the panel&lt;/h5&gt;
+Alright, so we have those two controls added to the map; we now need to add the controls to the panel.
+&lt;pre&gt;
+    external_panel.addControls([control_zoom_in, control_zoom_out]);
+&lt;/pre&gt;
+You'll notice we call the function &lt;em&gt;addControls&lt;/em&gt;.  To add any controls to a panel, we must call this function and pass in an array of controls - even if we only want to add one control (there is no "addControl" function, only addControls)
+&lt;br /&gt;&lt;div class="post_foot_note"&gt;
+If we take a look at the map now, we can see that it doesn't &lt;em&gt;look&lt;/em&gt; like there is a panel because we haven't applied any styles yet. &lt;a href="http://vasir.net/~erik/tutorials/openlayers_part3/demo9_panel_no_style.html" title="External Controls in Panel - No CSS" rel="nofollow"&gt;Controls outside map demo in panel - no style&lt;/a&gt;&lt;/div&gt;
+This is because by default, there is no style associated with the zoomin or zoomout controls.  Let's finish up this demo though by adding some CSS
+&lt;h4&gt;Adding style to controls in panels&lt;/h4&gt;
+The naming convention is the same as we mentioned above for naming controls inside panels, however, as these are controls inside a panel, they have 'states' attached attached to them.  &lt;em&gt;ItemActive&lt;/em&gt; or &lt;em&gt;ItemInactive&lt;/em&gt; is added to the end of the control's class name.  For example, our zoom in button has the class name
+&lt;br /&gt;&lt;pre&gt;.olControlZoomInItemInactive&lt;/pre&gt;
+&lt;br /&gt;Because of the type of this control is a button, its only relevant class is &lt;em&gt;olControlZoomInItemInactive&lt;/em&gt;.  When the button is clicked, it does not become active or inactive, but simply triggers the zoomIn event. 
+&lt;br /&gt;So, let's add some basic style to our controls to make them look a little bit like buttons.  Here's the relevant CSS code I use in the demo below:
+&lt;pre&gt;
+.olControlZoomInItemInactive {
+    background:url(http://dev.openlayers.org/releases/OpenLayers-2.8/img/zoom-plus-mini.png) no-repeat;
+    border:2px solid #232323;
+    float:left;
+    height:18px;
+    margin-right:5px;
+    width:18px;
+}
+.olControlZoomOutItemInactive {
+    background:url(http://dev.openlayers.org/releases/OpenLayers-2.8/img/zoom-minus-mini.png) no-repeat;
+    border:2px solid #232323;
+    float:left;
+    height:18px;
+    margin-right:5px;
+    width:18px;
+}
+&lt;/pre&gt;
+&lt;div class="post_foot_note"&gt;
+I'm just using the zoom-minus and zoom-plus images from OpenLayer's website to represent buttons, but you stlye them however you'd like.  
+&lt;br /&gt;Take a look at the finalized example here - &lt;a href="http://vasir.net/~erik/tutorials/openlayers_part3/demo9_panel_with_style" title="External Controls in Panel - With Style" rel="nofollow"&gt;Controls outside map demo in panel with CSS style&lt;/a&gt;
+&lt;/div&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+With this tutorial, hopefully you've learned how to add controls to an openlayers map, customize them a bit, give them some style, and add controls and panels outside a map.  Although this tutorial was a bit lengthy, it really just scratches the surface of what is possible to do with OpenLayers controls.  In the next tutorial, I plan to discuss how to use the OpenLayers Event system and create your own custom controls.  Stay tuned.</column>
+      <column name="description" type="3">OpenLayers Tutorial Part 3 - Controls.  Tutorial covering OpenLayers Controls, various examples and sample code, including styling controls with CSS, placing controls outside the map in panels, and more.</column>
+    </table>
+    <table name="vasir_blog_post">
+      <column name="slug" type="3">dijkstras_algorithm_shortest_path</column>
+      <column name="title" type="3">Dijkstra's Algorithm - Shortest Path</column>
+      <column name="post_date" type="3">2010-01-17 14:29:18</column>
+      <column name="post_last_edit_date" type="0">null</column>
+      <column name="num_views" type="0">null</column>
+      <column name="related_image" type="3"/>
+      <column name="category_id" type="3">game_development</column>
+      <column name="content" type="3">&lt;div class='post_emphasis'&gt;Note - This is not my area of expertise but I am very much interested in it and I welcome any corrections &lt;/div&gt;
+
+&lt;h2&gt;Outline&lt;/h2&gt; 
+This post will cover the basics of Dijksta's shortest path algorithm and how it can apply to path finding for game development. It is my opinion that understanding this algorithm will aid in understanding more complex AI algorithms, such as A*. This post is aimed more towards developers starting out in game development or those curious about Dijkstra's algorithm, but this will be a somewhat simplification of it and discuss mainly the concepts. 
+&lt;h2&gt;Introduction&lt;/h2&gt; 
+&lt;strong&gt;What’s an algorithm?&lt;/strong&gt;  
+&lt;br /&gt;An algorithm is basically a system for solving a problem. For us humans, looking at a 2d grid with many objects we can easily tell which path the character should take to reach his or her goal without thinking much about it. What we want to try to do is translate those semi-subconscious mental steps to a list of steps that anyone (or a computer) can repeat to get the same answer every time.  &lt;br /&gt;&lt;br /&gt;
+Finding the shortest route from one object to another when developing game AI is a very common problem and many solutions exist. At least in 2d grid / tile based games, perhaps the most common one is A*, with Dijkstra's being also quite good. Depending on the complexity of the game, Dijkstra's algorithm can be nearly as fast as A*, with some tweaking. A* is generally a better implementation, but can be slightly complex, so I'm going to discuss the fundamentals of Dijkstra's algorithm and in later posts talk about others, such as A*.
+ &lt;br /&gt;&lt;br /&gt;
+I'll be using the word graph here a lot, and it may not be immediately obvious how this translates to game dev, but you can easily translate this to 2d grid or tile based maps.
+
+&lt;h2&gt;Dijkstra’s Algorithm&lt;/h2&gt;
+Let's first define what exactly the problem is.  Take this graph, for instance.
+&lt;br /&gt;
+&lt;img src="http://vasir.net/~erik/tutorials/shortest_path/shortest_path1.png" 
+    alt="Shortest path example" with=500 height=500
+    class='center_image' /&gt;
+&lt;br /&gt;
+For the purposes of this post, the blue circles represent "nodes" or "vertices"  and the black lines are "edges" or "node paths".  Each edge has a cost associated with it.  
+For -this- image, the number in each node in this image is simply a label for the node, not the individual node cost. 
+&lt;br /&gt;&lt;br /&gt;
+Our problem is to find the most cost efficient route from Node1 to Node4.  The numbers on the node paths represent the "cost" of going between nodes.  The shortest path from Node1 to Node4 is to take Node1 to Node3 to Node4, as that is the path where the least cost is incurred. 
+&lt;br /&gt;
+Specifically, the cost to go from Node1 to Node3 is (2), plus the cost of Node3 to Node4 (5) is 7 (2 + 5).&lt;br /&gt;
+Now, we can see that the alternative (Node1 to Node2 to Node4) is much more costly (it costs 11, versus our 7).
+&lt;br /&gt;
+&lt;div class='post_guide'&gt;
+An important note - greedy algorithms aren't really effective here.  A greedy algorithim would bascially find the cheapest local costs as it traverses the graph with the hopes that it would be globally optimum when it's done. Meaning, a greedy algorithm would basically just take the first low value it sees.  In this case, the lower value is 1 but the next value is 10.  If we were to simply just apply a greedy algorithm, we end up taking the more costly from Node1 to Node4. 
+&lt;/div&gt;
+Figuring out the best path to take with this graph is pretty easy for us to do mentally, as if you can add small numbers you can figure out the best path to take.  For a small graph like the previous, it's quite easy.  The goal is translate the steps we take in our mind to steps a computer follow. 
+&lt;br /&gt;&lt;br /&gt;
+
+Dijkstra's algorithm is an algorithm that will determine the best route to take, given a number of vertices (nodes) and edges (node paths).  So, if we have a graph, if we follow Dijkstra's algorithm we can efficiently figure out the shortest route no matter how large the graph is. 
+&lt;br /&gt;&lt;br /&gt;
+Not only does Dijkstra's algorithm provide for us the shortest path from NodeA to NodeB, it provides for us the shortest route to -any- node on the graph between any other node.
+&lt;br /&gt;&lt;br /&gt;
+This concept is essentially how Google maps provides you directions.  There are many thousands of vertices and edges, and when you ask for directions you typically want the shortest or least expensive route to and from your destinations.
+&lt;br /&gt;&lt;br /&gt;
+So, how does this apply to game AI?  Well, the correlation is quite strong.  In a 2d grid or tile based map, there are many nodes (or tiles) and each tile can have a value associated with it (perhaps it is less expensive to walk across grass than it is to walk across broken bottles or lava).  
+&lt;br /&gt;&lt;br /&gt;
+You can set up your tiles so that each tile has a node path value associated with it, so if you put an NPC in the map you can use Dijkstra's algorithm to compute the shortest path for the NPC to take to -ANY- tile in your map.
+&lt;br /&gt;&lt;br /&gt;
+&lt;h2&gt;How it works&lt;/h2&gt;
+First we'll describe Dijsksta's algorithm in a few steps, and then expound on them furher:
+&lt;br /&gt;
+&lt;h5&gt;Step 0.&lt;/h5&gt; 
+Temporarily assign C(A) = 0 and C(x) = infinity for all other x.&lt;br /&gt;
+C(A) means the Cost of A&lt;br /&gt;
+C(x) means the current cost of getting to node x&lt;br /&gt;
+
+&lt;h5&gt;Step 1.&lt;/h5&gt;Find the node x with the smallest temporary value of c(x).  &lt;br /&gt;
+If there are no temporary nodes or if c(x) = infinity, then stop.&lt;br /&gt;
+Node x is now labeled as permanent.  Node x is now labeled as the current node.  C(x) and parent of x will not change again.&lt;br /&gt;	
+
+&lt;h5&gt; Step 2.&lt;/h5&gt; 
+For each temporary node labeled vertex y adjacent to x, make the following comparison:&lt;br /&gt;
+if c(x) + Wxy  &lt; c(y), then 
+c(y) is changed to c(x) + Wxy&lt;br /&gt;
+assign y to have parent x
+
+&lt;h5&gt;Step 3.&lt;/h5&gt; 
+Return to step 1.
+&lt;br /&gt;&lt;br /&gt;
+Before diving into a little more tricky graph, we'll stick with the original graph introduced above.  Let's get started.
+&lt;br /&gt;
+
+&lt;h3&gt;Step 0.&lt;/h3&gt;
+&lt;div class='post_guide'&gt;
+Temporarily assign C(A) = 0 and C(x) = infinity for all other x.
+C(A) means the Cost of A
+C(x) means the current cost of getting to node x
+&lt;/div&gt;
+
+The following graph has changed a little from the one shown above.  The nodes no longer have labels, apart from our starting point NodeA and our goal NodeB.
+
+&lt;img src="http://vasir.net/~erik/tutorials/shortest_path/sp_1_1.png" 
+    alt="Shortest Path Step 0" 
+    with=500 height=500
+    class='center_image' /&gt;
+&lt;h5&gt;Legend&lt;/h5&gt;
+Orange line – path to parent node&lt;br /&gt;
+Yellow arrow – points to the node’s parent&lt;br /&gt;
+Green node cost text – node cost is permanent&lt;br /&gt;
+White node cost test – node is temporary&lt;br /&gt;
+Yellow highlight – Current node&lt;br /&gt;
+&lt;br /&gt;
+We assign a cost of 0 to Node A and infinty to everything else.  We're done with this step now.
+ 
+&lt;h3&gt;Step 1.&lt;/h3&gt; 
+&lt;div class='post_guide'&gt;
+Find the node x with the smallest temporary value of c(x).&lt;br /&gt;
+If there are no temporary nodes or if c(x) = infinity, then stop.&lt;br /&gt;
+Node x is now labeled as permanent.  Node x is now labeled as the current node.  C(x) and parent of x will not change again.	
+&lt;/div&gt;
+Since 0 is the lowest value, we set A as the current node and make it permanent.
+
+&lt;h3&gt;Step 2.&lt;/h3&gt;
+&lt;div class='post_guide'&gt;
+For each temporary node labeled vertex y adjacent to x, make the following comparison:&lt;br /&gt;
+if c(x) + Wxy  &lt; c(y), then &lt;br /&gt;
+c(y) is changed to c(x) + Wxy&lt;br /&gt;
+assign y to have parent x
+&lt;/div&gt;
+There are two temporary nodes adjacent to our current node, so calcuate their cost values based on the current node's value + the cost of the adjacent node.  Assign that value to the temporary node only if it's less than the value that's already there. So, to clarify:
+&lt;br /&gt;&lt;br /&gt;
+The top node is adjacent to the current node and has a cost of infinity.  0 (the current node's value) + 1 (the cost associated with the temporary node) = 1, which is a less than infinity, so we change it's value from infinity to 1.  This value is not yet permanent.
+&lt;br /&gt;&lt;br /&gt;
+Now, do the same calucation for the next adjacent node. which is the bottom node. The value is 0 + 2 = 2, which is also less than infinity.  To illustrate:
+&lt;br /&gt;
+&lt;img src="http://vasir.net/~erik/tutorials/shortest_path/sp_1_2.png" 
+    alt="Shortest Path Step 2"
+    with=500 height=500
+    class='center_image' /&gt;
+&lt;br /&gt;
+So we now have looked at each temporary node adjacent to the current node, so we're done with this step. 
+
+&lt;h3&gt;Step 3.&lt;/h3&gt;
+&lt;div class='post_guide'&gt;Return to step 1.&lt;/div&gt;
+So, let's go back to step 1.  From this point forward, I'll be using the term iteration to describe our progression through the graph via Dijkstra's algorithm. The steps we previously took I'll refer to as iteration 0, so now when we return to step 1 we'll be at iteration 1.
+
+
+&lt;h2&gt;Iteration 1&lt;/h2&gt;
+We’re back at the first step.  It says look for the smallest temporary cost value and set it as permanent.  We have two nodes to look at, the top node with cost 1 and the bottom node with cost 2. 
+&lt;br /&gt;&lt;br /&gt; 
+The top node has a cost of 1, which is less than 2, so we set it as permanent and set it as our current node.  We designate this by a yellow shadow in the image. Now, it is important to keep in mind that the bottom node still has a temporary cost assigned to it.  This temporary cost is what allows the algorithm to find actual cheapest route – you’ll see in a second.  
+
+&lt;h3&gt;Step 1.&lt;/h3&gt;
+Find the cheapest node.  Done, it’s set as permanent and our current node is this one.  This node value will not change.  
+&lt;img src="http://vasir.net/~erik/tutorials/shortest_path/sp_2_1.png" alt="Shortest Path Iteration 1 Step 1" /&gt;
+The yellow highlight indictates the node we are currently on, and the green text means the node cost is permanent.  The nodes with white text for their costs are temporary nodes.    
+
+&lt;h3&gt;Step 2.&lt;/h3&gt;
+Assign cost values.  There is only one adjacent node to our current node.  It's current value is infinity, which is less than 1 + 10, so we assign 11 to it's temporary cost value.
+&lt;img src="http://vasir.net/~erik/tutorials/shortest_path/sp_2_2.png" alt="Shortest Path Iteration 1 Step 2"
+    with=500 height=500
+    class='center_image' /&gt;
+    
+This is not the shortest path from NodeA to NodeB, but that's fine.  The algorithm traverses all nodes in the graph, so you get the shortest path from any node to any other node. You can see that the shortest path from NodeA to the top node is the line between NodeA and the top node - well, of course, you say, because that's the only possible path from NodeA to the top node.  And you are right to say that, because it's true.  But let's say we have a node above the top node (we'll call it Top2).  The shortest path to that would from NodeA to the top node to node Top2.  Even though our goal is to go from A to B, as a side effect we also get the shortest route to every other node.  If that's a bit unclear, it should clear up after we go through the next iteration.
+&lt;br /&gt;&lt;br /&gt;
+Done with step 2, let's continue to step 3.
+
+&lt;h3&gt;Step 3.&lt;/h3&gt;
+Return to step 1.
+
+&lt;h2&gt;Iteration 2&lt;/h2&gt;
+Ok, so now we look again at the temporary nodes to see which has the lowest value.  Even though we calculated the temporary value of B to be 11, we are not done because that value might change (in this case, it will definitely change). 
+
+&lt;h3&gt;Step 1.&lt;/h3&gt;
+Pick the cheapest node and set it as our current node and make it permanent, and assign it its parent.
+
+We have two remaining temporary nodes with costs of 2 and 11.  2 is lower, so pick it and set it permanent and set it as our current node.  
+Let’s take a look at the graph to elucidate a bit.
+
+So, out of 11 and 2, as we said, 2 is cheaper so pick it.  We set this node’s value to be permanent and assign its parent is NodeA, demonstrated by the arrow.
+&lt;img src="http://vasir.net/~erik/tutorials/shortest_path/sp_3_1.png" alt="Shortest Path Iteration 2 Step 1"
+     with=500 height=500
+    class='center_image' /&gt;
+Notice that the parent of the top node does not, the top node still points to NodeA, because the best path from NodeA to the top node is exactly that - NodeA to the top node - again, this is a side effect of Dijkstra's algorithim in that we weren't looking for the shorest path from NodeA to the top node (we want NodeA to NodeB), but we learn about the shortest route between -any- two nodes in the graph.
+
+&lt;h3&gt;Step 2.&lt;/h3&gt; 
+Assign cost values to temporary nodes adjacent to the current node. 
+Again, like in the previous iteration, there is only one node to do a cost calculation on, as there is only one temporary node adjacent to the current node. This adjacent node is NodeB.  So, we check to see if 2 + 5 &lt; Node B’s temporary cost of 11.  It is, so we change Node B from 11 to 7.
+&lt;img src="http://vasir.net/~erik/tutorials/shortest_path/sp_3_2.png" alt="Shortest Path Iteration 2 Step 2" 
+    with=500 height=500
+    class='center_image' /&gt;
+&lt;h3&gt;Step 3.&lt;/h3&gt;
+Return to step 1
+
+&lt;h2&gt;Iteration 3&lt;/h2&gt;
+Almost done.
+&lt;h3&gt;Step 1&lt;/h3&gt;
+Choose the cheapest temporary node value.  There is only one temporary node remaining, so we pick it and set it as permanent, set it as our current node, and set it's parent.
+&lt;img src="http://vasir.net/~erik/tutorials/shortest_path/sp_4_1.png" alt="Shortest Path Iteration 3 Step 1"
+    with=500 height=500
+    class='center_image' /&gt;
+
+&lt;h3&gt;Step 2.&lt;/h3&gt;
+Assign costs.  There are no temporary nodes adjacent to Node B (there –are- permanent nodes, but we don’t check them).
+&lt;h3&gt;Step 3.&lt;/h3&gt;
+Return to step 1.
+
+&lt;h2&gt;Iteration 4&lt;/h2&gt;
+&lt;h3&gt;Step 1&lt;/h3&gt; 
+Choose the cheapest temporary node.  If none exists or c(x) = infinity, then stop.  There are no more temporary nodes and no nodes have values of infinity, so we’re done.  Algorithm has finished, and we have our shortest path from A to B, but also from every node to every other node in the graph.  With such a small graph as this, it's not immediately obvious how powerful and useful this algorithim is.  
+&lt;br /&gt;&lt;br /&gt;
+So, on to a more complicated graph now. 
+&lt;br /&gt;&lt;br /&gt;
+&lt;hr /&gt;
+&lt;br /&gt;
+A is our starting point, and B is the ending point.  Now, we could just as well apply this to a 2d tile based game where A could represent an NPC and B could represent the NPC's desired destination.  
+&lt;br /&gt;&lt;br /&gt;
+If you take a minute, you can probably find the least expensive route yourself.  As mentioned earlier, it's fairly trivial for us to come up with the answer, what we need to do is figure out how to convey the steps we take to more extensible steps that can be repeated by a computer for any graph.  For this graph, I won't be as thorough explaining every step, but the exact same process is applied.  Instead, I'll just provide an example of a slightly more complex graph and what it would look like using Dijkstra's algorithm.
+
+&lt;h3&gt;Step 0.&lt;/h3&gt;
+&lt;div class='post_guide'&gt;
+Temporarily assign C(A) = 0 and C(x) = infinity for all other x.&lt;br /&gt;
+C(A) means the Cost of A&lt;br /&gt;
+C(x) means the current cost of getting to node x
+&lt;/div&gt;
+So what's this mean? Well, our start point is A so c(A) = 0 means assign A a cost of 0 and set the cost of x for every other node to infinity.  Like the following
+&lt;img src="http://vasir.net/~erik/tutorials/shortest_path/shortest_path2_1.PNG" alt="Shortest path step 1"
+    with=500 height=500
+    class='center_image' /&gt;
+We assign a cost of 0 to our starting node A and a cost of infinity to every other node.  As before, none of these costs are permanent yet.
+
+
+&lt;h3&gt;Step 1.&lt;/h3&gt;
+The node with the smallest temporary value is node A with a cost of 0.  Therefore, we're going to make it permanent - meaning c(x) and the parent will not change.
+&lt;img src="http://vasir.net/~erik/tutorials/shortest_path/shortest_path2_1_a_selected.png" alt="Permanent node" /&gt;
+The 0 will not change now.
+
+If there are no temporary nodes, or if c(x) is infinity, the algorithm stops. Now, step 2.
+
+&lt;h3&gt;Step 2.&lt;/h3&gt;
+Basically, we're going to look at all the nodes that are connected to the currently selected node and calculate the cost to get to them.  If the cost of y is less than what it previously was, it will change - this will be discussed soon.
+&lt;br /&gt;&lt;br /&gt;
+So, let's first calculate the cost to get to the adjacent nodes. The cost is based on the value of the current node code plus the edge (node path) cost.  Right now, since this our first go, the cost our current node is at 0 since we haven't done any traversals.  
+&lt;br /&gt;&lt;br /&gt;
+So, let's start to figure out the c(x), the node costs.  
+&lt;img src="http://vasir.net/~erik/tutorials/shortest_path/shortest_path2_1_a_selected_3.png" alt="Code of nodes" 
+    with=500 height=500
+    class='center_image' /&gt;
+Notice the yellow arrows.  I'm using them to designate what node it got its cost from.  Here, since there is only one possible parent node, they all point to the same place. 
+&lt;br /&gt;&lt;br /&gt;
+ For the three nodes adjacent to A, we add the values of the edge and our current node (value of 0).  
+So, the top node is 0 + 3 = 3, which is less than the current value (which is infinity), so we apply the value of 3 to the node.  Then, the middle node 0 + 7 = 7, also less than infinity. Finally the bottom node has a value of 0 + 5 = 5, which is less than infinity.  Therefore, the top node has a c(x) of 3, the middle a c(x) of 7, and the bottom a c(x) of 5.
+&lt;br /&gt;&lt;br /&gt;
+&lt;h3&gt;Step 3.&lt;/h3&gt;
+&lt;div class='post_guide'&gt;Return to step 1&lt;/div&gt;
+
+As before, we just iteratively go through graph applying the same steps.
+&lt;br /&gt;&lt;br /&gt;
+So, walking through this - as step 1 says:
+&lt;div class='post_guide'&gt;
+We find node x with the smallest temporary value of c(x).   So, out of the three temporary nodes with values 3, 5, and 7 that we just worked out, the smallest value is 3.  We then make this node permanent.
+&lt;/div&gt;
+&lt;img src="http://vasir.net/~erik/tutorials/shortest_path/shortest_path3_2.png" alt="Second permanent node"
+    with=500 height=500
+    class='center_image' /&gt;
+
+Now, this entire process just repeats itself over and over until there are no more temporary nodes.
+
+&lt;img src="http://vasir.net/~erik/tutorials/shortest_path/shortest_path_final.png" alt="Shortest path final"
+    with=500 height=500
+    class='center_image' /&gt;
+
+And we're done.  We have the shortest path not JUST from A to B, but from -any- node to -any- other node.  Pretty convenient.   
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+Hopefully that explains a bit about how Dijkstra's Algorithm works.  For game development, in particular overhead 2d tile based games, it is usually easier to implement Dijkstra's than A*, and not much worse performance wise.  
+&lt;h3&gt;Performance&lt;/h3&gt;
+How well does Dijsktra's algorithm perform?  Well, in terms of big O notion it is O(n^2), which is efficient. 
+Specifically, suppose G has n vertices and m edges. Going through the steps, Step 0 has time n. Step 1 is called, at the very most, n times. Finding the cheapest vertex takes at most n steps, so step 1 has an upper bound time of n^2.  In Step 2, each edge / node path is examined, at most, twice.  There, the upper bound time is 2m.
+So, putting it all together, it's no worse than n^2 + 2m.  Again, in computer science terms, it is O(n^2) efficient; or: on the order of at most n^2 steps times a constant.
+
+&lt;br /&gt;&lt;br /&gt;
+Better algorithms for NPC path finding certainly exist, but in general Dijkstra's is pretty good, and fairly easy to implement yourself.  
+&lt;br /&gt;&lt;br /&gt;
+A very good explanation of implementation in python can be found at (written by the guy who wrote python) &lt;a href="http://www.python.org/doc/essays/graphs.html" title='Python Dijkstra Shortest Path' rel='nofollow'&gt;http://www.python.org/doc/essays/graphs.html&lt;/a&gt;</column>
+      <column name="description" type="3">This post will cover the basics of Dijksta's shortest path algorithm and how it can apply to path finding for game development. It is my opinion that understanding this algorithm will aid in understanding more complex AI algorithms, such as A*. This post is aimed more towards developers starting out in game development or those curious about Dijkstra's algorithm, but this will be a somewhat simplification of it and discuss mainly the concepts.</column>
+    </table>
+    <table name="vasir_blog_post">
+      <column name="slug" type="3">openlayers-tutorial-part-1-introduction</column>
+      <column name="title" type="3">OpenLayers Tutorial - Part 1 - Introduction</column>
+      <column name="post_date" type="3">2009-10-03 13:39:40</column>
+      <column name="post_last_edit_date" type="0">null</column>
+      <column name="num_views" type="0">null</column>
+      <column name="related_image" type="3"/>
+      <column name="category_id" type="3">openlayers</column>
+      <column name="content" type="3">&lt;div class='post_emphasis'&gt;This is the first part in a series of OpenLayers tutorials.  The goal of this article is to provide an overview of OpenLayers, show what it can do, and begin working with the code.&lt;/div&gt;
+&lt;br /&gt;&lt;strong&gt;OpenLayers&lt;/strong&gt; is an OpenSource, javascript based web mapping platform.
+&lt;br /&gt;
+&lt;br /&gt;OpenLayers easily supports a wide variety of various map sources - WMS, WFS, Google Maps, Microsoft's Bing, and many many more.  There are many built into tools, such as scale bars, overview maps, zoom bars, and many more; but OpenLayers also supports custom tools and allows for intricate configuration of existing ones.
+&lt;br /&gt;&lt;h5&gt;Useful OpenLayers links&lt;/h5&gt;
+OpenLayers - &lt;a href="http://openlayers.org/"&gt;http://openlayers.org&lt;/a&gt;
+&lt;br /&gt;OpenLayers API docs - &lt;a href="http://dev.openlayers.org/apidocs"&gt;http://dev.openlayers.org/apidocs&lt;/a&gt;
+&lt;br /&gt;OpenLayers Examples - &lt;a href="http://openlayers.org/dev/examples"&gt;http://openlayers.org/dev/examples&lt;/a&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;div class="postEmptyLines"&gt;&lt;/div&gt;
+&lt;br /&gt;&lt;h5&gt;OpenLayers Examples&lt;/h5&gt;
+The follow examples are pulled directly from http://openlayers.org/dev/examples
+&lt;br /&gt;
+&lt;br /&gt;Simple WMS map- http://openlayers.org/dev/examples/wms.html
+&lt;br /&gt;Vector layer manipulation - http://openlayers.org/dev/examples/vector-formats.html
+&lt;br /&gt;Google Map layer - http://openlayers.org/dev/examples/google.html
+&lt;br /&gt;ArcGIS 9.3 REST API Interaction - http://openlayers.org/dev/examples/arcgis93rest.html
+&lt;br /&gt;
+&lt;br /&gt;&lt;h2&gt;Section 1 - First OpenLayers Map&lt;/h2&gt;
+&lt;br /&gt;We'll start with a basic map.  As OpenLayers is Javascript based, some working knowledge of how to program in Javascript is helpful, but expertise is by no means required.  First we'll take a look at the code then break it apart.
+&lt;br /&gt;
+&lt;br /&gt;&lt;h5&gt;Create and show a simple OpenLayers Map&lt;/h5&gt;
+&lt;em&gt;Step 1&lt;/em&gt;.  Create a folder called "OLTutorial".  If working in windows, this tutorial assumes you are placing the folder in your C:\ drive ( so the full path would be C:\OLTutorial )
+&lt;br /&gt;
+&lt;br /&gt;&lt;em&gt;Step 2. &lt;/em&gt;Create a file called index.html (If you're on windows, you will probably need to disable the "Hide extensions for known file types" option.  &lt;a href="http://www.wikihow.com/Disable-Hidden-File-Extensions-in-Windows-XP" title="File Extension Hiding" rel="nofollow"&gt;How to disable hidden file extensions in windows xp&lt;/a&gt;)
+&lt;br /&gt;
+&lt;br /&gt;&lt;em&gt;Step 3. &lt;/em&gt; Input the following code
+&lt;pre&gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;script type="text/javascript"&amp;gt;
+
+var map;
+
+function init() {
+map = new OpenLayers.Map('map');
+var wms = new OpenLayers.Layer.WMS(
+"OpenLayers WMS",
+"http://labs.metacarta.com/wms/vmap0",
+{layers: 'basic'}
+);
+
+map.addLayers([wms]);
+map.zoomToMaxExtent();
+}
+
+&amp;lt;/script&amp;gt;
+&amp;lt;/head&amp;gt;
+
+&amp;lt;body onload="init()"&amp;gt;
+&amp;lt;div id="map" style="width: 600px; height: 300px"&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/body&amp;gt;
+&lt;/pre&gt;
+&lt;em&gt;Step 4. &lt;/em&gt;Save the file then open it in your browser.
+&lt;br /&gt;
+&lt;br /&gt;You should see a very simple OpenLayers map.
+&lt;h5&gt;Explanation&lt;/h5&gt;
+The above OpenLayers example requires, essentially, only three things.
+&lt;br /&gt;1. The location of the OpenLayers library
+&lt;br /&gt;2. An HTML element (a div in this case) to hold the map
+&lt;br /&gt;3. Javascript code to define the OpenLayers map and tell the map where to point to (again, in this case, a div)
+&lt;br /&gt;
+&lt;br /&gt;The location of the OpenLayers library in this example points to the OpenLayers.js file on the OpenLayers server.  You are free to download the full OpenLayers code and run it locally, pointing your &lt;strong&gt;script src="..."&lt;/strong&gt; equal to the location of the OpenLayers library on your harddrive.
+&lt;br /&gt;
+&lt;br /&gt;Let's look at the code line by line.&lt;pre&gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"&amp;gt;&amp;lt;/script&amp;gt;
+&lt;/pre&gt;
+Line 1 and 2 begin the HTML document and start the HEAD section of the index.html page.  The HEAD section is where our script code will reside.
+&lt;br /&gt;Line 3 points to the OpenLayers library.  You &lt;em&gt;must&lt;/em&gt; include the OpenLayers library before you try to use OpenLayers code.  The library contains the OpenLayers codebase - our code relies on the OpenLayers library, and without it our code would not work.
+&lt;br /&gt;&lt;pre&gt;
+&amp;lt;script type="text/javascript"&amp;gt;
+	var map;
+&lt;/pre&gt;
+&lt;em&gt;Line 1.&lt;/em&gt;  begins a new script tag and will hold our Javascript code to create the OpenLayers map.
+&lt;br /&gt;&lt;em&gt;Line 2.&lt;/em&gt;  Creates a global variable called "map" which will act as our map object, which will hold the OpenLayers map itself.
+&lt;pre&gt;
+function init() {
+	map = new OpenLayers.Map('map');
+	var wms = new OpenLayers.Layer.WMS(
+		"OpenLayers WMS",
+		"http://labs.metacarta.com/wms/vmap0",
+			{layers: 'basic'}
+	);
+&lt;/pre&gt;
+&gt;&lt;em&gt;This &lt;strong&gt;init &lt;/strong&gt;function will initialize the map, creating the OpenLayers map and assign a layer to it.&lt;/em&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;em&gt;Line 1.&lt;/em&gt;  Create a function called init without passing anything into the function.
+&lt;br /&gt;&lt;em&gt;Line 2.&lt;/em&gt;  We're using the &lt;em&gt;map&lt;/em&gt; object previously declared above.  Here, we're assigning the previously empty map variable to an OpenLayers map object via
+&lt;br /&gt;
+&lt;br /&gt;our code: &lt;pre lang="Javascript"&gt; new OpenLayers.map('map');&lt;/pre&gt;
+&lt;br /&gt;general code: &lt;pre lang="Javascript"&gt; new OpenLayers.map('ELEMENT NAME');&lt;/pre&gt;
+
+&lt;br /&gt;&lt;em&gt;new&lt;/em&gt; creates a new OpenLayers &lt;em&gt;map&lt;/em&gt; object.  We are passing in &lt;strong&gt;'map'&lt;/strong&gt;, which is a string containing the name of element we want the OpenLayers map to appear in on the webpage.  In this example, we have a &lt;em&gt;div&lt;/em&gt; element with the &lt;em&gt;id&lt;/em&gt; of '&lt;strong&gt;map&lt;/strong&gt;'. If this div's id was named something else, we would pass in the that div's id name instead of 'map'.
+&lt;br /&gt;
+&lt;br /&gt;&lt;em&gt;Line 3.&lt;/em&gt;  Here we're creating a &lt;strong&gt;wms&lt;/strong&gt; variable which will hold an OpenLayers layer object.  We call &lt;em&gt;new&lt;/em&gt; to create an OpenLayers Layer WMS object.  For other layer types, such as WFS or Google Maps, the call is similar but WMS is replaced with the layer service.   The full list of support layers and how to call them can be found at http://dev.openlayers.org/releases/OpenLayers-2.8/doc/apidocs/files/OpenLayers/Layer-js.html.
+&lt;br /&gt;
+&lt;br /&gt;At the end of the line we have a opening parenthesis, which means that we're going to pass in some configuration stuff to this OpenLayers Layer object.
+&lt;br /&gt;
+&lt;br /&gt;It is important to keep in mind that the following configuration code will of course differ for you, but also that the configurations will be different for different layer services.  Consult the linked documentation files above for more detailed information.
+&lt;br /&gt;
+&lt;br /&gt;&lt;em&gt;Line 4.&lt;/em&gt;  This line specifies an arbitrary title of the layer we're creating.
+&lt;br /&gt;
+&lt;br /&gt;&lt;em&gt;Line 5.&lt;/em&gt;  This is the URL of the WMS service
+&lt;br /&gt;
+&lt;br /&gt;&lt;em&gt;Line 6.&lt;/em&gt;  This is a dictionary of options the Layer object uses to generate the layer.  In this case, we want the "basic" layer from the layers of the WMS service we're calling.  You can call &lt;strong&gt;getCapabilities&lt;/strong&gt; on the WMS url to view a list of layers the WMS service contains.  
+&lt;div class='post_side_discussion'&gt;
+    &lt;div class='post_foot_note'&gt;Note - we can specify as many WMS service layers we want to display in our OpenLayers Layer object.  For example, we could show three layers from the WMS service in a -single- OpenLayers Layer. &lt;/div&gt; 
+    &lt;br /&gt;
+    &lt;div class='post_guide'&gt;
+    http://labs.metacarta.com/wms/vmap0?service=WMS&amp;amp;request=getCapabilities
+    &lt;/div&gt;The above URL calls getCapabilities for the WMS service we're using for this OpenLayers Layer.  If we look at that URL in our browser it will show us an XML file.  We can see what layers the WMS service has by looking for LAYER tags and looking at the NAME.  For example, this XML files contains
+    &lt;pre&gt;
+    ...
+	    &amp;lt;Layer&amp;gt;
+		    &amp;lt;Name&amp;gt;basic&amp;lt;/Name&amp;gt;
+    ...
+    &lt;/pre&gt;
+    This 'basic' layer is the 'basic' layer we are referring to in &lt;strong&gt;{ layers: 'basic'} &lt;/strong&gt;
+&lt;/div&gt;
+&lt;br /&gt;
+Back to the code...
+&lt;pre&gt;
+	map.addLayers([wms]);
+	map.zoomToMaxExtent();
+}
+&lt;/pre&gt;
+&lt;em&gt;Line 1.&lt;/em&gt;  We're adding the newly defined wms layer to the map here.  We can add multiple layers at once, but in this case we are just passing in one.  Regardless, the &lt;em&gt;addLayers&lt;/em&gt; function expects a list of layers, so we must pass in a list via &lt;strong&gt;([&lt;/strong&gt; layername&lt;strong&gt; ])&lt;/strong&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;em&gt;Line 2.&lt;/em&gt;  After we've defined the map and added a layer to it, we need to tell the map what extent to display.  If we don't do this, the map doesn't know what to display.
+&lt;br /&gt;So, in this case, we tell the map to zoom to the max extent - in other words, we are telling the map to show everything is can.
+&lt;br /&gt;
+&lt;br /&gt;&lt;em&gt;Line 3.&lt;/em&gt;   Finishes the &lt;strong&gt;init&lt;/strong&gt; function.
+&lt;pre&gt;
+&amp;lt;/script&amp;gt;
+&amp;lt;/head&amp;gt;
+
+&amp;lt;body onload="init()"&amp;gt;
+&amp;lt;div id="map" style="width: 600px; height: 300px"&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/body&amp;gt;
+&lt;/pre&gt;
+&lt;em&gt;Line 1.&lt;/em&gt;  Closes the script tag
+&lt;br /&gt;
+&lt;br /&gt;&lt;em&gt;Line 2.&lt;/em&gt;   Closes the head tag
+&lt;br /&gt;
+&lt;br /&gt;&lt;em&gt;Line 4.&lt;/em&gt;  Starts the body tag and call &lt;strong&gt;init()&lt;/strong&gt; when the body has finished loading.
+&lt;br /&gt;
+&lt;br /&gt;&lt;em&gt;Line 5.&lt;/em&gt;  Create a div with the id of &lt;strong&gt;map&lt;/strong&gt; which the OpenLayers Map object will render to.  The div can be styled however you like.  We'll just make a 600 x 300px big map for this example though.
+&lt;br /&gt;
+&lt;br /&gt;&lt;em&gt;Line 6.&lt;/em&gt;   Closes the body
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+That's all that's required to get a map up and running!  There are a myriad of controls, layers, and options that we haven't even mentioned (yet!).  The next tutorial will discuss the OpenLayers Layer class more and touch briefly on controls.  Again, more examples and details can be found through the OpenLayers.com API or on the OpenLayers irc channel at &lt;strong&gt;irc.freenode.net&lt;/strong&gt; in the &lt;strong&gt;#openlayers&lt;/strong&gt; channel.
+&lt;br /&gt;&lt;br /&gt;
+&lt;div class='grey_text align_right'&gt;
+Ready for the next post?  Continue to 
+&lt;a href='/blog/openlayers/openlayers-tutorial-part-2-layers/' 
+title='OpenLayers Tutorial - Part 2 - Layer Class'&gt;OpenLayers Tutorial - Part 2 - Layers&lt;/a&gt;
+&lt;/div&gt;</column>
+      <column name="description" type="3">Tutorial Introducing OpenLayers, covering the basics of creating a map and populating it with a single layer.</column>
+    </table>
+    <table name="vasir_blog_post">
+      <column name="slug" type="3">openlayers-tutorial-part-2-layers</column>
+      <column name="title" type="3">OpenLayers Tutorial - Part 2 - Layers</column>
+      <column name="post_date" type="3">2010-02-02 14:27:57</column>
+      <column name="post_last_edit_date" type="0">null</column>
+      <column name="num_views" type="0">null</column>
+      <column name="related_image" type="3"/>
+      <column name="category_id" type="3">openlayers</column>
+      <column name="content" type="3">Layers are, basically, OpenLayer's way of showing different map services.  The term may seem confusing when combined with an individual map service's layer term.  The broadest explanation I can provide for the moment is that an &lt;em&gt;OpenLayer Layer&lt;/em&gt; is an object inside OpenLayers that contains a single map service. 
+
+
+This is going to be a rather in depth tutorial.  Here's how it's set up
+&lt;div class="post_guide"&gt;
+&lt;strong&gt;&lt;em&gt;Part A&lt;/em&gt;&lt;/strong&gt; - URL Calls (Emphasis on WMS)
+&lt;strong&gt;&lt;em&gt;Part B&lt;/em&gt;&lt;/strong&gt; - Layer Class
+&lt;/div&gt;
+&lt;div class="blogMargin2"&gt;&lt;/div&gt;
+&lt;h2&gt;Part A - OpenLayers URL Calls&lt;/h2&gt;
+&lt;hr /&gt;
+
+In essence, OpenLayers basically provides a nice way to automatically call other map services, get back a lot of results, and piece them together to form a map.  Now, for a map service like Google Maps or a vector layer the logic is a bit different, but for the WMS service and other map services that accept a URL this is the basic process.  This may seem a bit abstract, so let's look at how OpenLayers makes a map using a WMS layer.
+
+&lt;h5&gt;OpenLayers Layer - WMS Process&lt;/h5&gt;
+OpenLayers is basically calling the URL you provide, adding parameters to the URL that act as GET variables (based off the parameters you pass in when you define the layer), getting back an image, and placing all the images together coherently as to form a large map image. 
+&lt;br /&gt;&lt;br /&gt;
+To clarify - If you have a map div that is 500pixels x 500pixels big, OpenLayers would make four separate calls to the URL you provide to get back four different images and place the four images side by side to form the 500 x 500 map.  (You could also just tell it to get back an image 500 x 500 pixels big, along with telling it to get back more images outside the viewing area so the panning around is more seamless, etc. We will cover this later)
+&lt;div class="post_guide"&gt;
+So, with that in mind, let's start taking a look at a WMS URL.
+&lt;a href="http://labs.metacarta.com/wms/vmap0?request=getCapabilities&amp;service=WMS" rel="nofollow" title="WMS Get Capabilities"&gt;http://labs.metacarta.com/wms/vmap0?request=getCapabilities&amp;service=WMS&lt;/a&gt;
+&lt;/div&gt;
+
+This is the url to get an XML that contains detailed information about the WMS service. The first part of the url, &lt;em&gt;http://labs.metacarta.com/wms/vmap0&lt;/em&gt; contains the actual URL you pass into the OpenLayers Layer url parameter.  
+&lt;br /&gt;
+Next we have a &lt;em&gt;?&lt;/em&gt; followed by a key = value pair of variables.  If you go to the url without passing ?request=getCapabilities&amp;service=WMS you won't see much.  But, by passing the a &lt;strong&gt;request&lt;/strong&gt; of &lt;em&gt;getCapabilities&lt;/em&gt; &lt;strong&gt;AND (&amp;)&lt;/strong&gt; a &lt;strong&gt;service&lt;/strong&gt; variable with the value &lt;em&gt;WMS&lt;/em&gt; you will get an XML file with a bunch of useful information in it (e.g., a list of layers you can use).
+&lt;br /&gt;&lt;br /&gt;
+For a service like WMS, many layers can be specified in the WMS parameter calls, but OpenLayers considers the entire WMS service -one- layer (even though the request itself may ask for multiple layers). The WMS Layer is one of the more popular layers used, so I'll first spend a moment discussing it.
+&lt;br /&gt;&lt;br /&gt;
+To elucidate this further, here's some example code that shows
+&lt;br /&gt;&lt;br /&gt;
+1. A single OpenLayers WMS Layer object with only one WMS layer parameter specified
+
+&lt;pre lang="Javascript" line="1"&gt;
+map = new OpenLayers.Map('map');
+    var wms = new OpenLayers.Layer.WMS(
+    "OpenLayers WMS",
+    "http://labs.metacarta.com/wms/vmap0",
+        {layers: 'basic'}
+    );
+&lt;/pre&gt;
+Take note of the &lt;strong&gt;{layers: 'basic'}&lt;/strong&gt; code.  This sets the "layers" parameter of the OpenLayers WMS Layer to "basic"
+
+&lt;br /&gt;&lt;br /&gt;
+2. A single OpenLayers WMS Layer object with two WMS layer parameters specified
+&lt;pre lang="Javascript" line="1"&gt;
+map = new OpenLayers.Map('map');
+    var wms = new OpenLayers.Layer.WMS(
+    "OpenLayers WMS",
+    "http://labs.metacarta.com/wms/vmap0",
+        {layers: 'basic, ground_01'}
+    );
+&lt;/pre&gt;
+
+Notice the "layers" parameter is set to 'basic,ground_01'.  This means that the WMS service will return an image that has both the 'basic' and 'ground_01' layers turned on.  Those two WMS layers are grouped into the OpenLayer Layer and are considered one OpenLayer Layer.
+&lt;div class="blogMargin1"&gt;&lt;/div&gt;
+
+&lt;em&gt;What exactly is happening here though?&lt;/em&gt; 
+Well, the parameters you define (explained later) such as &lt;strong&gt;layers: 'basic'&lt;/strong&gt; are passed into the URL for the layer (in this case, &lt;em&gt;http://labs.metacarta.com/wms/vmap0&lt;/em&gt;).  Thus, a url is generated from the layer definition you provide in OpenLayers.  Here's what one piece of the map looks like from the first example (you can test this yourself by opening the example map you created from part I and using the firebug addon for firefox to inspect the map element and get the img that is generated and copying the URL).
+
+&lt;div class='post_long_url_box'&gt;&lt;a href="http://labs.metacarta.com/wms/vmap0?LAYERS=basic&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;STYLES=&amp;EXCEPTIONS=application%2Fvnd.ogc.se_inimage&amp;FORMAT=image%2Fjpeg&amp;SRS=EPSG%3A4326&amp;BBOX=-180,-90,0,90&amp;WIDTH=256&amp;HEIGHT=256" rel="nofollow"&gt;http://labs.metacarta.com/wms/vmap0?LAYERS=basic&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;STYLES=&amp;EXCEPTIONS=application%2Fvnd.ogc.se_inimage&amp;FORMAT=image%2Fjpeg&amp;SRS=EPSG%3A4326&amp;BBOX=-180,-90,0,90&amp;WIDTH=256&amp;HEIGHT=256&lt;/a&gt;&lt;/div&gt;
+
+If you copy and paste the above URL into your browser, you should see a map image of the Americas and Antartica.  OpenLayers makes numerous calls to the URL and gets numerous images like this back, pieces them together, and lets you manipulate them through the interface with controls (which is the topic of the next tutorial).  Don't get overwhelmed yet though.  Let's break apart the URL.
+&lt;br /&gt;&lt;br /&gt;
+&lt;div class='post_inline_pre'&gt;http://labs.metacarta.com/wms/vmap0&lt;/div&gt;  - This is the base URL that is defined in the OpenLayers Layer definition.  Everything after this is generated by OpenLayers based on the parameters you specify in the Layer definition. 
+&lt;br /&gt;
+&lt;div class='post_inline_pre'&gt;?&lt;/div&gt; - This is a question mark which signifies everything after it will be a attribute=value pair.  These are GET variables (what you're doing here is basically giving the server information through the URl.  For example, a GET call could look like http://server.com?username=Foo.  By calling that specific URL, you're passing in the username of 'Foo' to the server.  Multiple pairs are separated by &amp;.  E.g., http://server.com?username=Foo&amp;password=Bar)
+&lt;br /&gt;
+&lt;div class='post_inline_pre'&gt;LAYERS=basic&lt;/div&gt; - Look familiar?  The LAYERS parameter gets it value from the &lt;em&gt;{layers: 'basic'}&lt;/em&gt; in the OpenLayers Layer definition.  
+&lt;br /&gt;
+&lt;div class='post_inline_pre'&gt;&amp;SERVICE=WMS&lt;/div&gt; - The service is WMS.  OpenLayers knows this because the Layer definition is a OpenLayers.Layer.WMS object.  
+&lt;br /&gt;&lt;br /&gt;
+&lt;div class="post_guide"&gt;The rest of the GET variables are automatically generated for you using default values.  You can, however, override them.&lt;/div&gt;
+Let's skip a couple of attribute=value pairs and find the &lt;strong&gt;BBOX&lt;/strong&gt; value.
+&lt;br /&gt;
+&lt;div class='post_inline_pre'&gt;&amp;BBOX=-180,-90,0,90&lt;/div&gt;  - This is where you tell the service what part of the map you want to look at.  This is where OpenLayers does a lot of its magic too.  Imagine you have a map that is composed of two images.  Now, with this example it'd be trivial to determine what two URL calls you need to make to get those two images (that two URL calls would be identical except for the BBOX parameter, where one would be -180,90,0,90 and the other would be 0, -90, 180, 90. You can try this yourself by going to 
+&lt;div class='post_long_url_box'&gt;&lt;a href="http://labs.metacarta.com/wms/vmap0?LAYERS=basic&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;STYLES=&amp;EXCEPTIONS=application%2Fvnd.ogc.se_inimage&amp;FORMAT=image%2Fjpeg&amp;SRS=EPSG%3A4326&amp;BBOX=-180,-90,0,90&amp;WIDTH=256&amp;HEIGHT=256" rel="nofollow"&gt;http://labs.metacarta.com/wms/vmap0?LAYERS=basic&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;STYLES=&amp;EXCEPTIONS=application%2Fvnd.ogc.se_inimage&amp;FORMAT=image%2Fjpeg&amp;SRS=EPSG%3A4326&amp;BBOX=-180,-90,0,90&amp;WIDTH=256&amp;HEIGHT=256&lt;/a&gt;&lt;/div&gt;
+
+and changing the BBOX parameters to see how the image is affected).   
+&lt;br /&gt;&lt;br /&gt;
+So, pulling two images and piecing them together yourself is trivial.  But now imagine a more realistic situation where you map is composed of 10 of these images.  This would be a bit harder to do - but now imagine that the user zooms in, or pans the map around.  You would have to recalculate the BBOX parameters for every interaction.  OpenLayers does this automatically.
+&lt;br /&gt;&lt;br /&gt;
+Go ahead and play with the parameters of 
+&lt;div class='post_long_url_box'&gt;
+&lt;a href="http://labs.metacarta.com/wms/vmap0?LAYERS=basic&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;STYLES=&amp;EXCEPTIONS=application%2Fvnd.ogc.se_inimage&amp;FORMAT=image%2Fjpeg&amp;SRS=EPSG%3A4326&amp;BBOX=-180,-90,0,90&amp;WIDTH=256&amp;HEIGHT=256" rel="nofollow"&gt;http://labs.metacarta.com/wms/vmap0?LAYERS=basic&amp;SERVICE=WMS&amp;VERSION=1.1.1&amp;REQUEST=GetMap&amp;STYLES=&amp;EXCEPTIONS=application%2Fvnd.ogc.se_inimage&amp;FORMAT=image%2Fjpeg&amp;SRS=EPSG%3A4326&amp;BBOX=-180,-90,0,90&amp;WIDTH=256&amp;HEIGHT=256&lt;/a&gt;
+&lt;/div&gt;
+
+Remember, these parameters will correspond to the ones you define in the OpenLayers Layer definition.
+
+
+&lt;h2&gt;Part B - Layer Class&lt;/h2&gt;
+The OpenLayers Layer class is what we use to specify the layers on the map.  OpenLayers provides support for a multitude of mapping services, including WMS, WFS, Google Maps, Bing Maps, even a Vector layer that supports KML and various other formats.  There's even an image layer that allows you to use an image as a map - e.g., you could use a high res picture of an antique map, an image of a map of a video game, or an image of something that's not a map at all.  
+
+&lt;br /&gt;&lt;br /&gt;
+Let's take a look at OpenLayer's extensive documentation.  
+&lt;a href="http://dev.openlayers.org/releases/OpenLayers-2.8/doc/apidocs/files/OpenLayers/Layer-js.html" title="OpenLayers documentation" rel="nofollow"&gt;http://dev.openlayers.org/releases/OpenLayers-2.8/doc/apidocs/files/OpenLayers/Layer-js.html&lt;/a&gt;
+This is the place to go to find out information about what a specific function or class supports. We're taking a look specifically at the Layer class here though.
+&lt;br /&gt;&lt;br /&gt;
+Notice that there's a summary of the properties, constraints, properties, and functions that are part of the Layer class. On the left hand side of the page, there's a &lt;strong&gt;Layer&lt;/strong&gt; dropdown that provide even more specific information for the Layer service of your choice.  This part will focus on the base Layer class though, and the next part of the tutorial will cover the specific Layer classes.
+&lt;br /&gt;&lt;br /&gt;
+Generally, the Layer class is defined with the following structure 
+&lt;pre class="post_pre_light"&gt;
+&lt;em&gt;Title&lt;/em&gt;,
+&lt;em&gt;URL of WMS service&lt;/em&gt;,
+&lt;em&gt;{Params}&lt;/em&gt;,
+&lt;em&gt;{Properties}&lt;/em&gt;
+&lt;/pre&gt;
+&lt;br /&gt;
+A concrete example would be, as we've seen before:
+&lt;pre&gt;
+var wms = new OpenLayers.Layer.WMS(
+    "OpenLayers WMS",
+    "http://labs.metacarta.com/wms/vmap0",
+        {layers: 'basic'}
+    );
+&lt;/pre&gt;
+Let's first go through this line by line.  Now, keep in mind that code is specific for the WMS Layer class. &lt;a href="http://dev.openlayers.org/docs/files/OpenLayers/Layer/WMS-js.html" rel='nofollow' title="OpenLayers WMS Class documentation"&gt;WMS Layer Doc&lt;/a&gt; for a complete class description.
+&lt;br /&gt;&lt;br /&gt;
+&lt;div class='post_inline_pre'&gt;var wms = new OpenLayers.Layer.WMS(&lt;/div&gt;
+&lt;em&gt;var wms&lt;/em&gt; - will be an OpenLayer.Layer.WMS object.  i.e., wms is an instantiated object based on the Layer.WMS class.  (If you are unfamiliar with object oriented programming, the basic idea is that a class is similar to a blueprint of a house and an object is the actual house created based on the blueprint.  We interact with objects that are generated from classes.)
+&lt;em&gt;new OpenLayers.Layer.WMS&lt;/em&gt; - this creates a new object using the OpenLayers.Layer.WMS class.
+&lt;em&gt;(&lt;/em&gt; - Here we begin passing in parameters
+
+&lt;br /&gt;
+&lt;div class='post_inline_pre'&gt;    "OpenLayers WMS",&lt;/div&gt; - This is the title of the layer.  The title what is displayed on the layer switcher control (which we'll cover in the next tutorial) and is completely arbitrary, you can call it whatever you'd like.
+
+&lt;br /&gt;
+&lt;div class='post_inline_pre'&gt;    "http://labs.metacarta.com/wms/vmap0",&lt;/div&gt; - this is the URL we'll be using for the layer
+
+&lt;br /&gt;
+&lt;div class='post_inline_pre'&gt;        {layers: 'basic'}&lt;/div&gt; - Now we start passing in params (parameters).  We pass in key: value pairs separated by commas.  e.g., &lt;em&gt;{ layers: 'basic',
+  transparent: 'true' }&lt;/em&gt;.  The params represent the GetMap url string discussed above.  The GetMap call will provide you with parameters you can define.
+  
+&lt;br /&gt;
+&lt;div class='post_inline_pre'&gt;   );&lt;/div&gt; - finish the call
+&lt;br /&gt;&lt;br /&gt;
+Notice we did not specify any &lt;strong&gt;properties&lt;/strong&gt; in this layer.  We'll get to that in a moment.
+
+&lt;div class='post_side_discussion'&gt;
+Now I'm going to shamelessly plug my Google Summer of Code 08 project, OpenLayers Architect.  I'll be using it occasionally to demonstrate various things.  You can reach it at &lt;a href="http://olarchitect.com/" title="OpenLayers Architect - Create a webmap"&gt;OLArchitect.com&lt;/a&gt;.
+Now, if you select a layer from the drop down list and hit "create" further options will appear on the left hand side.  These are all the properties available for that layer that were in place as late 2008 with a prior version of OpenLayers.  Almost all, if not all, the properties should still work.  If you save the layer then click the save and create map button the right hand side of the page, code will be generated. You can play around with it to see how it generate code based on your input.
+&lt;/div&gt;
+&lt;br /&gt;
+
+Now, let's take a look at some more WMS layer code
+&lt;pre lang="Javascript" line="1"&gt;
+layer0 = new OpenLayers.Layer.WMS( 'Layer Name', 
+    'http://labs.metacarta.com/wms/vmap0?',
+        {layers: 'basic'},
+        {projection: new OpenLayers.Projection('4362')}
+    );
+&lt;/pre&gt;
+The code is the same as before but notice the new projection attribute.
+&lt;h3&gt;Properties&lt;/h3&gt;
+We have neglected to mention properties yet.  They are, however, pretty important.  By default, most properties are inherited from the map - e.g., the projection.  &lt;em&gt;Params&lt;/em&gt; and &lt;em&gt;Properties&lt;/em&gt; of the WMS layer refer to different settings.  
+&lt;br /&gt;&lt;br /&gt;
+&lt;div class='post_inline_pre'&gt;&lt;em&gt;Params&lt;/em&gt;&lt;/div&gt;, the first dictionary object ( which in Javascript looks like a set of brackets { }'s with key:value pairs) corresponds to the parameters for the WMS service itself.  These params not be usable for a Google map layer or most other layers.&lt;br /&gt;
+&lt;div class='post_inline_pre'&gt;&lt;em&gt;Properties&lt;/em&gt;&lt;/div&gt;, the optional second dictionary object, contains OpenLayers Layer settings.
+&lt;br /&gt;&lt;br /&gt;
+Let's look at some code.
+&lt;br /&gt;
+&lt;pre&gt;{projection: new OpenLayers.Projection('4362')}&lt;/pre&gt;
+ This is the &lt;em&gt;properties&lt;/em&gt; object which in this case specifies the current layer's projection.
+&lt;br /&gt;&lt;br /&gt;
+Let's go back to the OpenLayers API docs &lt;a href="http://dev.openlayers.org/releases/OpenLayers-2.8/doc/apidocs/files/OpenLayers/Layer-js.html" title="OpenLayers documentation" rel="nofollow"&gt;OpenLayers docs&lt;/a&gt;.
+
+Notice the list of properties.  These are the properties you can use in that &lt;em&gt;properties&lt;/em&gt; object in the OpenLayer Layer definition. Again, these are separated by commas and are key: value pairs.  E.g., the properties object might look like 
+&lt;pre lang="Javascript" line="1"&gt;
+{ buffer:2, gutter: '1', isBaseLayer: 'True' }
+&lt;/pre&gt;
+
+The specific properties are described within the linked doc.  &lt;div class='post_inline_pre'&gt;buffer&lt;/div&gt; is basically how many tiles the map will draw outside the viewing area so navigation is more seamless.  &lt;div class='post_inline_pre'&gt;isBaseLayer&lt;/div&gt; determines if the map is considered a base or overlay layer.  The difference is subtle and the concept will pop up when we discuss the layer switcher control.  
+&lt;br /&gt;The main concept is that an base layer is used for what it sounds like - being the base layer.  If the isBaseLayer is not defined, it will be on or by default, depending on the layer service and how many layers are in the map.  If there are two WMS layers, you could have one layer be the base layer, e.g., a map of the earth, and the second layer be toggle-able layer of weather data.  
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+There will be more tutorials about specific Layer Classes - such as Google Maps and Vector Layers, but each are broken into their own post.  The next general tutorial will be OpenLayers Tutorial Part III - Controls.  We'll discuss what a control is, how to implement them, and how to customize them.
+
+&lt;br /&gt;&lt;br /&gt;
+&lt;div class="grey_text align_right"&gt;
+Ready for the next post?  Continue to 
+&lt;a href="/blog/openlayers/openlayers-tutorial-part-3-controls" title="OpenLayers Tutorial - Part 3 - Controls"&gt;OpenLayers Tutorial - Part 3 - Controls&lt;/a&gt;
+&lt;/div&gt;</column>
+      <column name="description" type="3">OpenLayers Tutorial Part 2 - Tutorial covering OpenLayers Layers, including how it works on the backend,  WMS, Vector layers, Google Maps and OpenLayer mashup instructions, and other Layer object related concepts.</column>
+    </table>
+    <table name="vasir_blog_post">
+      <column name="slug" type="3">replace_string_in_multiple_files</column>
+      <column name="title" type="3">Replace a String in Multiple Files in Linux Using Grep and Sed</column>
+      <column name="post_date" type="3">2010-04-25 22:27:29</column>
+      <column name="post_last_edit_date" type="0">null</column>
+      <column name="num_views" type="0">null</column>
+      <column name="related_image" type="3"/>
+      <column name="category_id" type="3">ubuntu</column>
+      <column name="content" type="3">I recently had to replace every occurrence of a certain word / string in a ton of files spanning multiple directories, and this is the quickest way I've found to do it.  It uses grep to search for a certain word and if it find its it runs sed to replace the strings you want.  &lt;em&gt;Note: This will not work on windows systems&lt;/em&gt;
+
+&lt;h3&gt;Basic Format&lt;/h3&gt;
+&lt;pre lang='bash'&gt;
+grep -rl matchstring somedir/ | xargs sed -i 's/string1/string2/g'
+&lt;/pre&gt;
+&lt;div class='notification'&gt;Note: The forward slash '/' delimiter in the sed argument could also be a different delimiter (such as the pipe '|' character).  The pipe delimiter might be useful when searching through a lot of html files if you didn't want to escape the forward slash, for instance. &lt;/div&gt;
+
+&lt;strong&gt;matchstring&lt;/strong&gt; is the string you want to match, e.g., "football"
+&lt;strong&gt;string1&lt;/strong&gt; would ideally be the same string as matchstring, as the matchstring in the grep command will pipe only files with matchstring in them to sed.  
+&lt;strong&gt;string2&lt;/strong&gt; is the string that replace string1.  
+
+There may be times when you want to use grep to find only files that have some matchstring and then replace on a different string in the file than matchstring.  For example, maybe you have a lot of files and only want to only replace on files that have the matchstring of 'phonenumber' in them, and then replace '555-5555' with '555-1337'.  Not that great of an example (you could just search files for that phone number instead of the string 'phonenumber'), but your imagination is probably better than mine.
+
+&lt;h3&gt;Example&lt;/h3&gt;
+&lt;pre lang='bash'&gt;
+grep -rl 'windows' ./ | xargs sed -i 's/windows/linux/g'
+&lt;/pre&gt;
+This will search for the string 'windows' in all files relative to the current directory and replace 'windows' with 'linux' for each occurrence of the string in each file.  
+
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+Any comments / suggestions for improvement are much welcomed.</column>
+      <column name="description" type="3">This is the quickest way I've found to search for and replace every occurrence of a string in multiple files in linux.
+&lt;pre&gt;
+grep -rl matchstring somedir/ | xargs sed -i 's/string1/string2/g'
+&lt;/pre&gt;
+example:
+&lt;pre&gt;
+grep -rl 'windows' ./ | xargs sed -i 's/windows/linux/g'
+&lt;/pre&gt;</column>
+    </table>
+    <table name="vasir_blog_post">
+      <column name="slug" type="3">set-up-dual-monitors-with-ubuntu-804</column>
+      <column name="title" type="3">ATI / NVidia Dual monitors with Ubuntu 8.04</column>
+      <column name="post_date" type="3">2008-07-21 22:00:52</column>
+      <column name="post_last_edit_date" type="0">null</column>
+      <column name="num_views" type="0">null</column>
+      <column name="related_image" type="3"/>
+      <column name="category_id" type="3">ubuntu</column>
+      <column name="content" type="3">&lt;div class='post_emphasis'&gt;This is outdated - newer versions of Ubuntu support dual monitors out of the box&lt;/div&gt;
+&lt;object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="425" height="350" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"&gt;&lt;param name="src" value="http://www.youtube.com/v/zFX5UssUgcs" /&gt;&lt;embed type="application/x-shockwave-flash" width="425" height="350" src="http://www.youtube.com/v/zFX5UssUgcs"&gt;&lt;/embed&gt;&lt;/object&gt;
+
+&lt;br /&gt;&lt;br ?&gt;
+Set up dual monitors in Ubuntu 8.04 for both ATI and NVidia based graphics cards without configuring xorg.conf or manually editing any other files.  This should work for most ait or nvidia based dual monitor setups with Ubuntu 8.04 Hardy Heron.
+
+&lt;h2&gt;Directions&lt;/h2&gt;
+We'll follow some simple steps.
+
+&lt;h3&gt;Step 1. Download EnvyNG&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Open Synaptic Package Manager
+(System &amp;gt; Administration &amp;gt; Synaptic Package Manager)&lt;/li&gt;
+&lt;li&gt;Download 'envyng-core' and 'envyng-gtk'&lt;/li&gt;
+&lt;/ul&gt;
+&lt;strong&gt;Core&lt;/strong&gt; is the actual program &lt;br /&gt;
+&lt;strong&gt;Gtk&lt;/strong&gt; is the GUI frontend
+
+&lt;h3&gt;Step 2. Use EnvyNG&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Open EnvyNG
+(Application &amp;gt; System Tools &amp;gt; EnvyNG)&lt;/li&gt;
+&lt;li&gt;Download appropriate drivers&lt;/li&gt;&lt;/ul&gt;
+This may take a while &lt;br /&gt;
+Reboot once installed
+
+&lt;h3&gt;Step 3. Configure Video Card&lt;/h3&gt;
+&lt;h4&gt;NVIDIA&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Open Nvidia’s control panel (System &amp;gt; Administration &amp;gt; NVIDIA X Server Settings)&lt;/li&gt;
+&lt;li&gt;Enable TwinView. Click 'Configure', select TwinView, and click 'OK'&lt;/li&gt;
+&lt;li&gt;Specify options based on your monitor setup. Select a default monitor. Chose physical monitor positions&lt;/li&gt;
+&lt;li&gt;Click 'Save the X Configuration File' and click save on the popup&lt;/li&gt;
+&lt;li&gt;Reboot&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h4&gt;ATI&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Located in either of these places&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;(System &amp;gt; Administration &amp;gt; ATI / Catalyst Settings)&lt;/li&gt;
+&lt;li&gt;(Application &amp;gt; System &amp;gt; ATI / Catalyst Settings)&lt;/li&gt;
+&lt;li&gt;(Application &amp;gt; Other)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;li&gt;If not in any of these places, open it through the command line using 'amdcccle'&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;Press alt + f2, enter “amdcccle” in the prompt box, and hit enter&lt;/li&gt;&lt;/ul&gt;
+&lt;li&gt;Open the display manager and click the display modes tab and change the select mode to big desktop.&lt;/li&gt;
+&lt;li&gt;Apply the settings, click ok, and close the control panel and restart your computer.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Step 4. Screen Resolution&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Open the Screen Resolution options
+&lt;ul&gt;
+&lt;li&gt;System &amp;gt; Preferences &amp;gt; Screen Resolution&lt;/li&gt;&lt;/ul&gt;
+&lt;li&gt;Ensure “Clone Screens” is not checked&lt;/li&gt;
+&lt;li&gt;Select the resolution with the largest width&lt;/li&gt;
+&lt;ul&gt;
+&lt;li&gt;e.g. 2960 x 1050&lt;/li&gt;&lt;/ul&gt;
+&lt;li&gt;Apply Settings and reboot&lt;/li&gt;</column>
+      <column name="description" type="3">Set up dual monitors in Ubuntu 8.04 for both ATI and NVidia based graphics cards without configuring xorg.conf or manually editing any other files. This should work for most ait or nvidia based dual monitor setups with Ubuntu 8.04 Hardy Heron.  Note: This is a bit outdated, newer versions of Ubuntu support this out of the box</column>
+    </table>
+    <table name="vasir_blog_post">
+      <column name="slug" type="3">openlayers-presentation-shrug-2010</column>
+      <column name="title" type="3">OpenLayers 2.10 SHRUG 2010 Presentation</column>
+      <column name="post_date" type="3">2010-11-16 22:07:14</column>
+      <column name="post_last_edit_date" type="3">2010-11-16 22:07:15</column>
+      <column name="num_views" type="0">null</column>
+      <column name="related_image" type="3"/>
+      <column name="category_id" type="3">openlayers</column>
+      <column name="content" type="3">I recently gave a talk at the SHRUG conference in Tallahasse, FL.  It's a general introduction to OpenLayers, containing some code and examples of what OpenLayers can do.  
+&lt;h3&gt;Related Files&lt;/h3&gt;
+You can download the presentation and code files here
+&lt;h5&gt;Presentation (powerpoint) Slide&lt;/h5&gt;
+&lt;a href='/static/vasir/shrug_presentation/hazzard_openlayers_openoffice.odp'&gt;Download the presentation in open office format&lt;/a&gt; 
+&lt;br /&gt;
+&lt;a href='/static/vasir/shrug_presentation/hazzard_openlayers.ppt'&gt;Download the presentation in Microsoft Office format&lt;/a&gt; 
+
+&lt;h5&gt;Code files&lt;/h5&gt;
+&lt;a href='/static/vasir/shrug_presentation/code.zip'&gt;Download the code archive in .zip format&lt;/a&gt;</column>
+      <column name="description" type="3">I recently gave a talk at the SHRUG conference in Tallahasse, FL.  It's a general introduction to OpenLayers, containing some code and examples of what OpenLayers can do.  
+&lt;br /&gt;&lt;br /&gt;
+You can &lt;a href='/static/vasir/shrug_presentation/hazzard_openlayers_openoffice.odp'&gt;download the presentation in open office format&lt;/a&gt; or &lt;a href='/static/vasir/shrug_presentation/hazzard_openlayers.ppt'&gt;download the presentation in Microsoft Office format&lt;/a&gt; 
+&lt;br /&gt;&lt;br /&gt;
+You can also &lt;a href='/static/vasir/shrug_presentation/code.zip'&gt;download the code archive in .zip format&lt;/a&gt;</column>
+    </table>
+
+    <table name="vasir_blog_post">
+      <column name="slug" type="3">openlayers_book_intro</column>
+      <column name="title" type="3">OpenLayers 2.10 Beginner's Guide</column>
+      <column name="post_date" type="3">2011-03-16 22:07:14</column>
+      <column name="post_last_edit_date" type="3">2011-03-16 22:07:15</column>
+      <column name="num_views" type="0">null</column>
+      <column name="related_image" type="3"/>
+      <column name="category_id" type="3">my-openlayers-book</column>
+      <column name="content" type="3">The aim of this book is to provide a guide for beginners and also serve as a reference (but not a replacement for the OpenLayers docs). We use examples throughout the book to demonstrate OpenLayers concepts. This site will serve as extension for the OpenLayers book and contain code samples, error fixes, and other related things. 
+This OpenLayers book is available at &lt;a href='https://www.packtpub.com/openlayers-2-1-javascript-web-mapping-library-beginners-guide/book' target='_blank' title='OpenLayers Beginner Guide published by Packt'&gt;OpenLayers Book 2.10 Beginner's Guide&lt;/a&gt;.
+&lt;br /&gt;
+As errors and corrections are found, I will be posting updates.  You can find the code, along with a free chapter (Chapter 9 - Using Vector Layers) in the &lt;a href='http://vasir.net/openlayers_book'&gt;openlayers book section&lt;/a&gt; of my site.  If you find any errors or things that should be addressed, please e-mail me at enoex1 .at. gmail.
+      </column>
+      <column name="description" type="3">The aim of this book is to provide a guide for beginners and also serve as a reference (but not a replacement for the OpenLayers docs). We use examples throughout the book to demonstrate OpenLayers concepts. This site will serve as extension for the OpenLayers book and contain code samples, error fixes, and other related things. 
+This OpenLayers book is available at &lt;a href='https://www.packtpub.com/openlayers-2-1-javascript-web-mapping-library-beginners-guide/book' target='_blank' title='OpenLayers Beginner Guide published by Packt'&gt;OpenLayers Book 2.10 Beginner's Guide&lt;/a&gt;.
+&lt;br /&gt;
+As errors and corrections are found, I will be posting updates.  You can find the code, along with a free chapter (Chapter 9 - Using Vector Layers) in the &lt;a href='http://vasir.net/openlayers_book'&gt;openlayers book section&lt;/a&gt; of my site.  If you find any errors or things that should be addressed, please e-mail me at enoex1 .at. gmail.
+      </column>
+    </table>
+  </database>
