@@ -2,7 +2,7 @@
 #Run gunicorn
 PID_FILE=/var/run/gunicorn_erikandalisen.pid
 WORKERS=1
-BIND_ADDRESS=127.0.0.1:8000
+BIND_ADDRESS=127.0.0.1:9000
 WORKER_CLASS=gevent
 LOGFILE=/var/log/gunicorn/erikandalisen.log
 
